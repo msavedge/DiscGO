@@ -105,6 +105,22 @@ def get_count_disc_by_stability():
     return rows
 
 
+def get_count_disc_by_weight():
+    sql = '''
+        select
+           count(turn),
+           weight
+        from 
+            inventory
+        group by 
+            weight
+        order by 
+            weight desc
+    '''
+    rows = dg.db_query_all(sql)
+    return rows
+
+
 # logic code above
 # GUI code below
 def get_table_count_discs_by_type():
@@ -189,6 +205,19 @@ def get_table_count_discs_by_stability():
     return table
 
 
+def get_table_count_discs_by_weight():
+    _headings = ['COUNT', 'WEIGHT']
+    _values = get_count_disc_by_weight()
+    table = [sg.Table(headings=_headings,
+                      values=_values,
+                      justification='right',
+                      alternating_row_color='#666666',
+                      row_height=25,
+                      num_rows=10,
+                      pad=((20, 10), (10, 10)))]
+    return table
+
+
 def get_frame_disc_by_type():
     frame = [sg.Frame("TYPE", [get_table_count_discs_by_type()])]
     return frame
@@ -214,6 +243,11 @@ def get_frame_disc_by_stability():
     return frame
 
 
+def get_frame_disc_by_weight():
+    frame = [sg.Frame("WEIGHT in grams", [get_table_count_discs_by_weight()])]
+    return frame
+
+
 def get_col1():
     return sg.Column([get_frame_disc_by_type(), get_frame_disc_by_brand()])
 
@@ -230,9 +264,13 @@ def get_col4():
     return sg.Column([get_frame_disc_by_stability()])
 
 
+def get_col5():
+    return sg.Column([get_frame_disc_by_weight()])
+
+
 def get_layout():
     layout = [
-        [get_col1(), get_col2(), get_col3(), get_col4()]
+        [get_col1(), get_col2(), get_col3(), get_col4(), get_col5()]
     ]
     return layout
 
