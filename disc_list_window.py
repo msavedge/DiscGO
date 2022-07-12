@@ -53,7 +53,9 @@ def show(_layout):
             fade = disc[5]
 
             disc_add_edit_window.show(disc_add_edit_window.get_add_mold_layout(mold))
-
+            # comment out if you want disc list to stay open after adding disc.
+            #   default is to return directly to inventory window
+            window.close()
         else:
             pass
 

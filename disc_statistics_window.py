@@ -3,11 +3,14 @@ import PySimpleGUI as sg
 
 
 # get number of _type (putter, midrange, fairway, distance) disc in inventory
+import popup_by_type
+
+
 def get_count_by_disc_type(_type):
     sql = f'''
         SELECT
-            disc.type,
-            count(*)
+            count(*),
+            disc.type
         FROM
             inventory
         JOIN
@@ -25,8 +28,8 @@ def get_count_by_disc_type(_type):
 def get_count_disc_by_type():
     sql = '''
         SELECT
-            disc.type,
-            count(*)
+            count(*),
+            disc.type
         FROM
             inventory
         join
@@ -42,8 +45,8 @@ def get_count_disc_by_type():
 def get_count_disc_by_brand():
     sql = '''
         SELECT
-            brand,
-            count(*)
+            count(*),
+            brand
         FROM
             inventory
         group by
@@ -57,8 +60,8 @@ def get_count_disc_by_brand():
 def get_count_disc_by_speed():
     sql = '''
         SELECT
-            speed,
-            count(*)
+            count(*),
+            speed
         FROM
             inventory
         group by
@@ -73,8 +76,8 @@ def get_count_disc_by_speed():
 def get_count_disc_by_mold():
     sql = '''
         SELECT
-            mold,
-            count(*)
+            count(*),
+            mold
         FROM
             inventory
         group by
@@ -89,11 +92,14 @@ def get_count_disc_by_mold():
 def get_count_disc_by_stability():
     sql = '''
         select
-            turn + fade as stability,
-            count(turn)
-        from inventory
-        group by stability
-        order by stability desc
+           count(turn),
+           turn + fade as stability
+        from 
+            inventory
+        group by 
+            stability
+        order by 
+            stability desc
     '''
     rows = dg.db_query_all(sql)
     return rows
@@ -102,23 +108,26 @@ def get_count_disc_by_stability():
 # logic code above
 # GUI code below
 def get_table_count_discs_by_type():
-    _headings = ['TYPE', 'COUNT']
+    _headings = ['COUNT', 'TYPE']
     table = [sg.Table(headings=_headings,
                       values=get_count_disc_by_type(),
-                      justification='left',
+                      justification='right',
                       alternating_row_color='#666666',
                       row_height=25,
                       num_rows=4,
+                      enable_click_events=False,
+                      enable_events=True,
+                      key='-tbl_disc_by_type-',
                       pad=((20, 10), (10, 10)))]
     return table
 
 
 def get_table_count_discs_by_brand():
-    _headings = ['BRAND', 'COUNT']
+    _headings = ['COUNT', 'BRAND']
     _values = get_count_disc_by_brand()
     table = [sg.Table(headings=_headings,
                       values=_values,
-                      justification='left',
+                      justification='right',
                       alternating_row_color='#666666',
                       row_height=25,
                       num_rows=len(_values),
@@ -127,11 +136,11 @@ def get_table_count_discs_by_brand():
 
 
 def get_table_count_discs_by_speed():
-    _headings = ['SPEED', 'COUNT']
+    _headings = ['COUNT', 'SPEED']
     _values = get_count_disc_by_speed()
     table = [sg.Table(headings=_headings,
                       values=_values,
-                      justification='left',
+                      justification='right',
                       alternating_row_color='#666666',
                       row_height=25,
                       num_rows=len(_values),
@@ -155,11 +164,11 @@ def get_layout_discs_by_type():
 
 
 def get_table_count_discs_by_mold():
-    _headings = ['MOLD', 'COUNT']
+    _headings = ['COUNT', 'MOLD']
     _values = get_count_disc_by_mold()
     table = [sg.Table(headings=_headings,
                       values=_values,
-                      justification='left',
+                      justification='right',
                       alternating_row_color='#666666',
                       row_height=25,
                       num_rows=10,
@@ -168,11 +177,11 @@ def get_table_count_discs_by_mold():
 
 
 def get_table_count_discs_by_stability():
-    _headings = ['STABILITY', 'COUNT']
+    _headings = ['COUNT', 'STABILITY']
     _values = get_count_disc_by_stability()
     table = [sg.Table(headings=_headings,
                       values=_values,
-                      justification='left',
+                      justification='right',
                       alternating_row_color='#666666',
                       row_height=25,
                       num_rows=10,
@@ -233,12 +242,22 @@ def show(layout):
     # ------ Event Loop ------
     while True:
         event, values = window.read()
-        print(event, values)
+        print(f'event: {event}')
+        print('')
+        print(f'values: {values}')
+
         if event == sg.WIN_CLOSED:
             print(f'CLOSED WINDOW')
             window.close()
-            layout = None
             break
+
+        # elif event == '-tbl_disc_by_type-':
+            # row = values["-tbl_disc_by_type-"][0]
+            # # print(f'row clicked: {row}')
+            # disc_type = window["-tbl_disc_by_type-"].get()[row][0]
+            # # print(f'disc type: {disc_type}')
+            # popup_by_type.show(popup_by_type.get_layout(disc_type), disc_type)
+
 
 
 if __name__ == '__main__':

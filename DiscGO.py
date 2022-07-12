@@ -3,7 +3,7 @@ import DiscGOdata as dgd
 
 
 def db_connect():
-    return sqlite3.connect('disc_db.db')
+    return sqlite3.connect('./disc_db.db')
 
 
 def db_execute(sql):

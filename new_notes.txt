@@ -81,3 +81,21 @@ select
 group by stability
 order by stability desc
 
+# get {putter} pop-up:
+SELECT
+	inventory.mold,
+	inventory.speed,
+	inventory.glide,
+	inventory.turn,
+	inventory.fade,
+	(inventory.turn + inventory.fade) as stability
+FROM
+	inventory
+JOIN
+	disc
+	on
+	disc.mold like inventory.mold
+WHERE
+	disc.type like 'putter'
+order by
+	stability desc

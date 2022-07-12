@@ -39,6 +39,7 @@ def show(_layout):
     # ------ Event Loop ------
     while True:
         event, values = window.read()
+        #event, values = window.read(timeout=15000)
         print(event, values)
 
         if event == sg.WIN_CLOSED or event == 'CLOSE WINDOW':
@@ -75,6 +76,12 @@ def show(_layout):
         elif event == 'DISC COLLECTION DATA':
             dgg.show_collection_data()
             break
+
+        elif event == '__TIMEOUT__':
+            break
+            # window.close()
+            # main_loop()
+            # window['-tbl_inv-'].update(values=dg.get_disc_inventory())
 
         print("UH OH - HOW DID WE GET HERE???")
 

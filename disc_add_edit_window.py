@@ -90,7 +90,7 @@ def edit_button_row():
          sg.Text(' ', size=2),
          sg.Button('DELETE DISC', button_color=('red', 'white')),
          sg.Text(' ', size=2),
-         sg.Button('CANCEL')],
+         sg.Button('CLOSE WINDOW')],
     ]
     return _layout
 
@@ -110,7 +110,7 @@ def show(_layout):
     while True:
         event, values = window.read()
         print(event, values)
-        if event == sg.WIN_CLOSED or event == 'CANCEL':
+        if event == sg.WIN_CLOSED or event == 'CLOSE WINDOW':
             print('SAVING DISC STATUS')
             disc_id = values['-disc_id-']
 
@@ -124,6 +124,11 @@ def show(_layout):
             dg.update_disc_in_inventory(disc_id, plastic, weight, color, notes)
 
             print(f'CLOSED WINDOW')
+            window.close()
+            break
+
+        elif event == 'CANCEL': # user decided to not add disc
+            print('CANCELLED DISC ADD')
             window.close()
             break
 
@@ -156,8 +161,8 @@ def show(_layout):
             print('< EVENT = ADD >')
 
             disc_definition = {
-                'mold':         values["-mold-"],
-                'manufacturer': values['-brand-'],
+                'mold':         values["-mold-"].upper(),
+                'manufacturer': values['-brand-'].upper(),
                 'speed':        values['-speed-'],
                 'glide':        values['-glide-'],
                 'turn':         values['-turn-'],
@@ -173,8 +178,8 @@ def show(_layout):
             # save disc details in database:
             print("saving disc info")
             dg.add_mold_to_inventory(disc_definition)
-            # sg.PopupOK(f'{values["-mold-"]} saved')
             window.close()
+            sg.PopupOK(f'{values["-mold-"]} saved')
             break
 
         elif event == 'DELETE DISC':
