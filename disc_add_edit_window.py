@@ -34,7 +34,7 @@ def get_edit_disc_layout(disc_id):
 
 
 def get_disc_detail_layout(disc_id, _mold):
-    # get dummy disc info / mold based on situation:
+    # set (dummy) disc_id and mold based on conditions:
     if disc_id == 0:
         disc = dummy_disc = ('mold', 'brand', 0.0, 0.0, 0.0, 0.0, 'select', '', '#000000', '', 0)
         mold = _mold
@@ -68,8 +68,8 @@ def get_disc_detail_layout(disc_id, _mold):
          sg.In(fade, visible=False, key='-fade-')],
         [sg.Text('COLOR')],
         [sg.ColorChooserButton('SELECT', target='-color-'),
-         sg.In(color, size=8, enable_events=True, key='-color-'),
-         sg.DummyButton(color, size=(11, 1), button_color=(color, color), disabled=True, key='-swatch-')],
+         sg.In(f'{color.upper()}', size=8, enable_events=True, key='-color-'),
+         sg.DummyButton('', size=(11, 1), button_color=(color, color), disabled=True, key='-swatch-')],
         [sg.In(color, visible=False, key='-secret-color-')],
         [sg.Text('PLASTIC'),
          sg.Text(' ', size=8),
@@ -90,7 +90,7 @@ def edit_button_row():
          sg.Text(' ', size=2),
          sg.Button('DELETE DISC', button_color=('red', 'white')),
          sg.Text(' ', size=2),
-         sg.Button('CLOSE WINDOW')],
+         sg.Button('CLOSE')],
     ]
     return _layout
 
@@ -110,7 +110,7 @@ def show(_layout):
     while True:
         event, values = window.read()
         print(event, values)
-        if event == sg.WIN_CLOSED or event == 'CLOSE WINDOW':
+        if event == sg.WIN_CLOSED or event == 'CLOSE' or event == 'CANCEL':
             print('SAVING DISC STATUS')
             disc_id = values['-disc_id-']
 

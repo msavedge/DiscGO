@@ -67,10 +67,12 @@ def show(_layout):
             # refresh table rows after saving disc / closing edit window
             # HOW??
             print(f'DISC LIST: {dg.get_disc_inventory()}')
+            window.close()
             break
 
         elif event == 'ADD DISC':
             dgg.show_mold_database()
+            window.close()
             break
 
         elif event == 'DISC COLLECTION DATA':

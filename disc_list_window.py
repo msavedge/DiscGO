@@ -39,6 +39,7 @@ def show(_layout):
             break
         elif event == 'CLOSE WINDOW':
             window.close()
+            break
 
         elif event == '-tbl_list-':
             # print(f'tbl_list: {values["-tbl_list-"][0]}')
@@ -53,11 +54,7 @@ def show(_layout):
             fade = disc[5]
 
             disc_add_edit_window.show(disc_add_edit_window.get_add_mold_layout(mold))
-            # comment out if you want disc list to stay open after adding disc.
-            #   default is to return directly to inventory window
-            window.close()
-        else:
-            pass
+            break
 
     window.close()
     return event, values
