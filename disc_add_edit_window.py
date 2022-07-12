@@ -5,6 +5,7 @@ import mold_info_window
 
 
 def get_add_mold_layout(_mold):
+    print(f'ADD MOLD LAYOUT _mold: {_mold}')
     dummy_disc_id = 0
     mold = _mold
 
@@ -32,67 +33,17 @@ def get_edit_disc_layout(disc_id):
     return layout
 
 
-# def get_disc_add_layout(disc_id, _mold):
-#
-#     if disc_id == 0:
-#         disc = dummy_disc = ('mold', 'brand', 0.0, 0.0, 0.0, 0.0, 'select', '', '#000000', '', 0)
-#         mold = _mold
-#     else:
-#         disc = dg.get_disc_from_inventory(disc_id)
-#         mold = disc[0]
-#
-#     print(f'DISC INFO: {disc}')
-#
-#     brand = disc[1]
-#     speed = disc[2]
-#     glide = disc[3]
-#     turn = disc[4]
-#     fade = disc[5]
-#     plastic = disc[6]
-#     weight = disc[7]
-#     color = disc[8]
-#     notes = disc[9]
-#     disc_id = disc[10]
-#
-#     plastics = dg.get_plastics_for_mold(mold)
-#     print(f'FOUND SOME PLASTIC: {plastics}')
-#
-#     _layout = [
-#         [sg.Text(' '),
-#          sg.In(disc_id, visible=False, key='-disc_id-'),
-#          sg.In(brand, visible=False, key='-brand-'),
-#          sg.In(speed, visible=False, key='-speed-'),
-#          sg.In(glide, visible=False, key='-glide-'),
-#          sg.In(turn, visible=False, key='-turn-'),
-#          sg.In(fade, visible=False, key='-fade-')],
-#         [sg.Text('COLOR')],
-#         [sg.ColorChooserButton('SELECT', target='-color-'),
-#          sg.In(color, size=8, enable_events=True, key='-color-'),
-#          sg.DummyButton(color, size=(11, 1), button_color=(color, color), disabled=True, key='-swatch-')],
-#         [sg.In(color, visible=False, key='-secret-color-')],
-#         [sg.Text('PLASTIC'),
-#          sg.Text(' ', size=8),
-#          sg.Text('WEIGHT')],
-#         [sg.Combo(values=plastics, default_value=plastic, size=12, key='-plastic-'),
-#          sg.Text(' ', size=2),
-#          sg.In(weight, size=4, key='-weight-')],
-#         [sg.Text('NOTES')],
-#         [sg.In(notes, size=40, key='-notes-')],
-#         [sg.Text('')],
-#     ]
-#     return _layout
-
-
 def get_disc_detail_layout(disc_id, _mold):
+    # get dummy disc info / mold based on situation:
     if disc_id == 0:
         disc = dummy_disc = ('mold', 'brand', 0.0, 0.0, 0.0, 0.0, 'select', '', '#000000', '', 0)
         mold = _mold
     else:
         disc = dg.get_disc_from_inventory(disc_id)
         mold = disc[0]
+
     print(f'DISC INFO: {disc}')
 
-    mold = disc[0]
     brand = disc[1]
     speed = disc[2]
     glide = disc[3]
@@ -188,24 +139,6 @@ def show(_layout):
                 color = values['-color-']
                 window['-swatch-'].update(button_color=(color, color))
                 window['-secret-color-'].update(values['-color-'])
-
-        # elif event == 'SAVE':
-        #     print('< EVENT = SAVE >')
-        #     # save/update disc details in database:
-        #     disc_id = values['-disc_id-']
-        #
-        #     plastic = values['-plastic-'][0]
-        #     print(f'plastic: {plastic}')
-        #
-        #     weight = values['-weight-']
-        #     color = values['-color-']
-        #     notes = values['-notes-']
-        #
-        #     print("saving disc info")
-        #     dg.update_disc_in_inventory(disc_id, plastic, weight, color, notes)
-        #     # sg.PopupOK(f'{values["-mold-"]} saved')
-        #     window.close()
-        #     break
 
         elif event == 'ADD DISC':
             # mold = disc[0]

@@ -1,0 +1,83 @@
+SELECT
+	inventory.mold,
+	inventory.brand,
+	disc.type
+FROM
+	inventory
+	join
+		disc on inventory.mold like disc.mold
+	order by
+		disc.type, inventory.brand
+
+SELECT
+	type,
+	count(*)
+FROM
+	disc
+group by
+	type
+
+# get count by disc type ##########################
+SELECT
+	disc.type,
+	count(*)
+FROM
+	inventory
+	join
+		disc on inventory.mold like disc.mold
+	group by
+		disc.type
+
+# get count for specific type:
+SELECT
+	disc.type,
+	count(*)
+FROM
+	inventory
+	join
+		disc on inventory.mold like disc.mold
+WHERE
+	disc.type like 'putter'
+##################################################
+
+# get count by disc brand ########################
+SELECT
+	brand,
+	count(*)
+FROM
+	inventory
+group by
+    brand
+order by count(*) desc
+##################################################
+
+# get count by disc mold #########################
+SELECT
+	mold,
+	count(*)
+FROM
+	inventory
+	group by
+		mold
+	order by count(*) desc
+##################################################
+
+# get count by disc speed ########################
+SELECT
+	speed,
+	count(*)
+FROM
+	inventory
+	group by
+		speed
+	order by speed
+##################################################
+
+# get count by stability #########################
+select
+	turn + fade as stability,
+	count(turn)
+ from inventory
+group by stability
+order by stability desc
+

@@ -72,9 +72,14 @@ def show(_layout):
             dgg.show_mold_database()
             break
 
+        elif event == 'DISC COLLECTION DATA':
+            dgg.show_collection_data()
+            break
+
         print("UH OH - HOW DID WE GET HERE???")
 
     if restart:
+        window.close()
         main_loop()
 
 
