@@ -27,6 +27,7 @@ def table_example():
                 header_list = df.iloc[0].tolist()
                 # Drops the first row in the table (otherwise the header names and the first row will be the same)
                 data = df[1:].values.tolist()
+                print(f'data: {data}')
             elif button == 'No':                    # Press if you didn't name the columns in the csv
                 # Creates columns names for each column ('column0', 'column1', etc)
                 header_list = ['column' + str(x) for x in range(len(data[0]))]

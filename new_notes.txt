@@ -100,14 +100,3 @@ WHERE
 order by
 	stability desc
 
-
-	def get_disc_count_by_filter(_filter):
-    print(f'filter: {_filter}')
-    df = get_data_frame()
-    if _filter == 'mold':
-        pivot = df.pivot_table(index='mold', values="id", aggfunc="count")
-        rows = pivot.to_dict()['id'].items()
-    else:
-        pivot = df.pivot_table(index=_filter, values="mold", aggfunc="count")
-        rows = pivot.to_dict()['mold'].items()
-    return rows
