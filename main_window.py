@@ -24,7 +24,7 @@ def get_inventory_table_layout(_headings, _values):
                   num_rows=12,
                   key='-tbl_inv-',
                   enable_events=True,
-                  enable_click_events=True,
+                  enable_click_events=False,
                   justification='left',
                   alternating_row_color='#666666',
                   row_height=25)]
@@ -35,6 +35,7 @@ def get_inventory_table_layout(_headings, _values):
 def show(_layout):
     restart = True
     disc_list = dg.get_disc_inventory()
+
     window = sg.Window('DiscGO - Disc Golf Data And Number Crunching Experiment', _layout)
     # ------ Event Loop ------
     while True:
@@ -78,12 +79,6 @@ def show(_layout):
         elif event == 'DISC COLLECTION DATA':
             dgg.show_collection_data()
             break
-
-        elif event == '__TIMEOUT__':
-            break
-            # window.close()
-            # main_loop()
-            # window['-tbl_inv-'].update(values=dg.get_disc_inventory())
 
         print("UH OH - HOW DID WE GET HERE???")
 

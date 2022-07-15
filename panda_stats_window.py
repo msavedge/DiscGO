@@ -32,115 +32,55 @@ def get_data_frame():
     return df
 
 
-def update_tables_by_type(TYPE, window):
+def update_data_frame(_df):
+    df = _df
+
+def get_filtered_data_frame(TYPE, BRAND, MOLD, SPEED, STABILITY, WEIGHT):
+    print(f'type: {TYPE}, brand: {BRAND}, mold: {MOLD}, speed: {SPEED}, stability: {STABILITY}, weight: {WEIGHT}')
+
     df = get_data_frame()
-    if TYPE == 'All':
-        new_df = df
-    else:
-        new_df = df[df.type == TYPE]
+    # print(df)
 
-    type_data = new_df.pivot_table(index="type", values="brand", aggfunc="count", margins=True).to_dict()['brand'].items()
-    mold_data = new_df.pivot_table(index="mold", values="brand", aggfunc="count", margins=True).to_dict()['brand'].items()
-    brand_data = new_df.pivot_table(index="brand", values="mold", aggfunc="count", margins=True).to_dict()["mold"].items()
-    speed_data = new_df.pivot_table(index="speed", values="mold", aggfunc="count", margins=True).to_dict()["mold"].items()
-    stability_data = new_df.pivot_table(index="stability", values="mold", aggfunc="count", margins=True).to_dict()["mold"].items()
-    weight_data = new_df.pivot_table(index="weight", values="mold", aggfunc="count", margins=True).to_dict()["mold"].items()
+    if TYPE != 'All':
+        print(f'FILTER TYPE: {TYPE}')
+        df = df[df.type == TYPE]  # here's where the magic happens?
 
-    # window['-tbl_type-'].update(values=type_data)
-    window['-tbl_mold-'].update(values=mold_data)
-    window["-tbl_brand-"].update(values=brand_data)
-    window["-tbl_speed-"].update(values=speed_data)
-    window["-tbl_stability-"].update(values=stability_data)
-    window["-tbl_weight-"].update(values=weight_data)
+    if MOLD != 'All':
+        print(f'FILTER MOLD: {MOLD}')
+        df = df[df.mold == MOLD]  # here's where the magic happens?
 
+    if SPEED != 'All':
+        print(f'FILTER SPEED: {SPEED}')
+        df = df[df.speed == SPEED]  # here's where the magic happens?
 
+    if BRAND != 'All':
+        print(f'FILTER BRAND: {BRAND}')
+        df = df[df.brand == BRAND]  # here's where the magic happens?
 
-def update_tables(TYPE, BRAND, MOLD, SPEED, STABILITY, WEIGHT, window, event):
-    print(f'type: {TYPE}, brand: {BRAND}, mold: {MOLD}, speed: {SPEED}, stability: {STABILITY}, weight: {WEIGHT}, event: {event}')
-    df = get_data_frame()
-    print(df)
-    filter_count = 0
-    FILTER = ''
-    # _type = ''
-    # _brand = ''
-    # _mold = ''
-    # _speed = ''
-    # _stability = ''
-    # _weight = ''
+    if STABILITY != 'All':
+        print(f'FILTER STAB: {STABILITY}')
+        df = df[df.stability == STABILITY]  # here's where the magic happens?
 
-    if TYPE:
-        _type = TYPE
-
-    if BRAND:
-        _brand = BRAND
-
-    if SPEED:
-        _speed = SPEED
-
-    if STABILITY:
-        _stability = STABILITY
-
-    if MOLD:
-        _mold = MOLD
-
-    if WEIGHT:
-        _weight = WEIGHT
-
-    if _type != 'All':
-        print(f'FILTER TYPE: {_type}')
-        FILTER += f'(df.type=="{_type}") & '
-        filter_count += 1
-        df = df[df.type == _type] # here's where the magic happens?
-
-    if _mold != 'All':
-        print(f'FILTER MOLD: {_mold}')
-        FILTER += f'(df.mold=="{_mold}") & '
-        filter_count += 1
-        df = df[df.mold == _mold] # here's where the magic happens?
-
-    if _speed != 'All':
-        print(f'FILTER SPEED: {_speed}')
-        FILTER += f'(df.speed=="{_speed}") & '
-        filter_count += 1
-        df = df[df.speed == _speed] # here's where the magic happens?
-
-    if _brand != 'All':
-        print(f'FILTER BRAND: {_brand}')
-        FILTER += f'(df.brand=="{_brand}") & '
-        filter_count += 1
-        df = df[df.brand == _brand] # here's where the magic happens?
-
-    if _stability != 'All':
-        print(f'FILTER STAB: {_stability}')
-        FILTER += f'(df.stability=="{_stability}") & '
-        filter_count += 1
-        df = df[df.stability == _stability] # here's where the magic happens?
-
-    if _weight != 'All':
-        print(f'FILTER WEIGHT: {_weight}')
-        FILTER += f'(df.weight=="{_weight}") & '
-        filter_count += 1
-        df = df[df.weight == _weight] # here's where the magic happens?
-
-    print(f'FILTER: {FILTER}')
-    print(f'filter count: {filter_count}')
-
-    if filter_count > 0:
-        FILTER += f'{True}'
-
-    # FILTER = '[' + FILTER + ']'
-    print(f'FILTER: "{FILTER}"')
+    if WEIGHT != 'All':
+        print(f'FILTER WEIGHT: {WEIGHT}')
+        df = df[df.weight == WEIGHT]  # here's where the magic happens?
 
     new_df = df
     print(f'NEW DataFrame: {new_df}')
 
+    return new_df
+
+
+def update_tables(TYPE, BRAND, MOLD, SPEED, STABILITY, WEIGHT, window, event):
+    new_df = get_filtered_data_frame(TYPE, BRAND, MOLD, SPEED, STABILITY, WEIGHT)
+
     type_data = new_df.pivot_table(index="type", values="brand", aggfunc="count", margins=True).to_dict()['brand'].items()
     mold_data = new_df.pivot_table(index="mold", values="brand", aggfunc="count", margins=True).to_dict()['brand'].items()
     brand_data = new_df.pivot_table(index="brand", values="mold", aggfunc="count", margins=True).to_dict()["mold"].items()
     speed_data = new_df.pivot_table(index="speed", values="mold", aggfunc="count", margins=True).to_dict()["mold"].items()
     stability_data = new_df.pivot_table(index="stability", values="mold", aggfunc="count", margins=True).to_dict()["mold"].items()
     weight_data = new_df.pivot_table(index="weight", values="mold", aggfunc="count", margins=True).to_dict()["mold"].items()
-    #
+
     if event != '-tbl_type-':
         window['-tbl_type-'].update(values=type_data)
     if event != '-tbl_mold-':
@@ -152,9 +92,10 @@ def update_tables(TYPE, BRAND, MOLD, SPEED, STABILITY, WEIGHT, window, event):
     window["-tbl_weight-"].update(values=weight_data)
 ### end update_tables()
 
+
 def get_disc_count_by_filter(_filter):
-    print(f'filter: {_filter}')
-    df = get_data_frame()
+    # print(f'filter: {_filter}')
+    # df = get_data_frame()
     if _filter == 'mold':
         pivot = df.pivot_table(index="mold", values="brand", aggfunc="count", margins=True)
         rows = pivot.to_dict()['brand'].items()
@@ -182,71 +123,62 @@ def get_table_by_filter(_filter): # filter = type, brand, speed, etc.
     return table
 
 
-def get_frame_by_filter(filter):
-    frame = [sg.Frame(filter.upper(), [get_table_by_filter(filter)])]
+def get_frame_by_filter(_filter):
+    frame = [sg.Frame(_filter.upper(), [get_table_by_filter(_filter)])]
     return frame
 
 
 def get_col1():
-    return sg.Column([get_frame_by_filter('type'), get_frame_by_filter('brand')])
+    return sg.Column([get_frame_by_filter('type')])
 
 
 def get_col2():
-    return sg.Column([get_frame_by_filter('mold')])
+    return sg.Column([get_frame_by_filter('brand')])
 
 
 def get_col3():
-    return sg.Column([get_frame_by_filter('speed')])
+    return sg.Column([get_frame_by_filter('mold')])
 
 
 def get_col4():
-    return sg.Column([get_frame_by_filter('stability')])
+    return sg.Column([get_frame_by_filter('speed')])
 
 
 def get_col5():
+    return sg.Column([get_frame_by_filter('stability')])
+
+
+def get_col6():
     return sg.Column([get_frame_by_filter('weight')])
 
 
 def get_layout():
     layout = [
-        [get_col1(), get_col2(), get_col3(), get_col4(), get_col5()]
+        [get_col1(), get_col2(), get_col3(), get_col4(), get_col5(), get_col6()]
     ]
     return layout
 
 
 def show(layout):
     window = sg.Window('DISC COLLECTION STATISTICS', layout)
-    # ------ Event Loop ------
-    TYPE = 'All'
-    BRAND = 'All'
-    MOLD = 'All'
-    SPEED = 'All'
-    STABILITY = 'All'
-    WEIGHT = 'All'
-
     while True:
         event, values = window.read()
         print(f'event: {event}')
-        print('')
         print(f'values: {values}')
 
         if event == sg.WIN_CLOSED:
             print(f'CLOSED WINDOW')
             window.close()
             break
-        # to filter: click on a row in any table
-        #   onclick(): 'tighten' dataframe and re-run pivot tables to regenerate data in all other tables
-        # if event == clicked on 'TYPE' row 0 (first row in table)
-        #   get type of disc to filter on
+
         if event == '-tbl_type-':
             row = values["-tbl_type-"][0]
             # print(f'ROW: {row}')
             table_data = window["-tbl_type-"].get()
             df = pd.DataFrame(table_data)
             TYPE = df.iloc[row].tolist()[0]
-            # print(f'TYPE: {TYPE}')
-            # update_tables_by_type(TYPE, window)
-            update_tables(TYPE, BRAND, MOLD, SPEED, STABILITY, WEIGHT, window, event)
+        else:
+            TYPE = 'All'
 
         if event == '-tbl_brand-':
             row = values["-tbl_brand-"][0]
@@ -254,9 +186,8 @@ def show(layout):
             table_data = window["-tbl_brand-"].get()
             df = pd.DataFrame(table_data)
             BRAND = df.iloc[row].tolist()[0]
-            # print(f'BRAND: {BRAND}')
-            # print(f'TYPE: {TYPE}')
-            update_tables(TYPE, BRAND, MOLD, SPEED, STABILITY, WEIGHT, window, event)
+        else:
+            BRAND = 'All'
 
         if event == '-tbl_mold-':
             row = values["-tbl_mold-"][0]
@@ -264,13 +195,29 @@ def show(layout):
             table_data = window["-tbl_mold-"].get()
             df = pd.DataFrame(table_data)
             MOLD = df.iloc[row].tolist()[0]
-            print(f'MOLD: {MOLD}')
-            update_tables(TYPE, BRAND, MOLD, SPEED, STABILITY, WEIGHT, window, event)
-        
+        else:
+            MOLD = 'All'
+
+    # update_tables(TYPE, BRAND, MOLD, SPEED, STABILITY, WEIGHT, window, event)
+    df = get_filtered_data_frame(TYPE, BRAND, MOLD, SPEED, STABILITY, WEIGHT)
+    # update_data_frame(new_df)
+    # main_loop()
+# ----------------------------------------------------------------------------------
+
+
+TYPE = 'All'
+BRAND = 'All'
+MOLD = 'All'
+SPEED = 'All'
+STABILITY = 'All'
+WEIGHT = 'All'
+df = get_filtered_data_frame(TYPE, BRAND, MOLD, SPEED, STABILITY, WEIGHT)
+print(f'STARTING DATAFRAME: {df}')
 
 
 def main_loop():
-    df = get_data_frame()
+    # print(f"DATA FRAME: {df}")
+    # exit()
     show(get_layout())
 
 
