@@ -1,3 +1,6 @@
+potential database to scrape: https://discgolfdata.com/pages/yadd.html
+
+
 SELECT
 	inventory.mold,
 	inventory.brand,

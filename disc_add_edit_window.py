@@ -4,7 +4,7 @@ import PySimpleGUI as sg
 import mold_info_window
 
 
-def get_add_mold_layout(_mold):
+def get_add_disc_layout(_mold):
     print(f'ADD MOLD LAYOUT _mold: {_mold}')
     dummy_disc_id = 0
     mold = _mold
@@ -19,12 +19,13 @@ def get_add_mold_layout(_mold):
     return layout
 
 
+# edit disc layout composed of mold info window & disc detail layout
 def get_edit_disc_layout(disc_id):
     disc = dg.get_disc_from_inventory(disc_id)
     mold = disc[0]
 
     mold_info_layout = mold_info_window.get_layout(mold)
-    disc_detail_layout = get_disc_detail_layout(disc_id, '')
+    disc_detail_layout = get_disc_detail_layout(disc_id, mold)
 
     layout = []
     layout.append(mold_info_layout)
@@ -36,7 +37,7 @@ def get_edit_disc_layout(disc_id):
 def get_disc_detail_layout(disc_id, _mold):
     # set (dummy) disc_id and mold based on conditions:
     if disc_id == 0:
-        disc = dummy_disc = ('mold', 'brand', 0.0, 0.0, 0.0, 0.0, 'select', '', '#000000', '', 0)
+        disc = ('mold', 'brand', 0.0, 0.0, 0.0, 0.0, 'select', '', '#000000', '', 0)
         mold = _mold
     else:
         disc = dg.get_disc_from_inventory(disc_id)
@@ -127,12 +128,12 @@ def show(_layout):
             window.close()
             break
 
-        elif event == 'CANCEL': # user decided to not add disc
+        elif event == 'CANCEL':  # user decided to not add disc
             print('CANCELLED DISC ADD')
             window.close()
             break
 
-        if event == '-color-': # clicked color picker button
+        if event == '-color-':  # clicked color picker button
 
             if values['-color-'] == 'None':
                 print('BLACK and WHITE')
@@ -178,8 +179,8 @@ def show(_layout):
             # save disc details in database:
             print("saving disc info")
             dg.add_mold_to_inventory(disc_definition)
-            window.close()
             sg.PopupOK(f'{values["-mold-"]} saved')
+            window.close()
             break
 
         elif event == 'DELETE DISC':
@@ -199,6 +200,5 @@ def show(_layout):
 
 
 if __name__ == '__main__':
-    # show(get_add_mold_layout('kaxe'))
-    # pig number one is disc_id = 2 <- DON'T DELETE IT!!
-    show(get_edit_disc_layout(2))
+    show(get_add_disc_layout('kaxe'))
+    # show(get_edit_disc_layout(2))

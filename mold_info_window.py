@@ -63,7 +63,7 @@ def show(_layout):
             break
         elif event == 'ADD TO COLLECTION':
             print('add to bag:')
-            disc_add_edit_window.show(disc_add_edit_window.get_add_mold_layout(values['-mold-']))
+            disc_add_edit_window.show(disc_add_edit_window.get_add_disc_layout(values['-mold-']))
 
 
 if __name__ == '__main__':

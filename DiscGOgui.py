@@ -11,19 +11,8 @@ def show_inventory_window():
 
 
 def show_mold_database():
-    dlw.show(dlw.get_layout())
+    dlw.show()
 
 
 def show_collection_data():
     dsw.show(dsw.get_layout())
-
-# def show_disc_not_found():
-#     sg.popup('DISC NOT FOUND')
-
-
-# def get_inventory_layout():
-#     return iw.get_layout()
-
-
-# def get_mold_list_layout():
-#     return dlw.get_layout()

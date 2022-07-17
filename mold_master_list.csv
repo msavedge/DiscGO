@@ -1,0 +1,739 @@
+type,brand,mold,speed,glide,turn,fade,stability
+Distance,ABC Discs,Bee Line,14.0,5.0,-3.0,2.0,-1.0
+Fairway,ABC Discs,Gamma Ray,9.0,4.0,-2.0,2.0,0.0
+Midrange,ABC Discs,Mission,4.0,5.0,-1.0,2.0,1.0
+Putter,ABC Discs,Money,2.0,3.0,0.0,2.0,2.0
+Distance,ABC Discs,Secret Weapon,10.0,5.0,-3.0,2.0,-1.0
+Distance,Above Ground Level,Cypress,12.0,5.0,-2.0,2.0,0.0
+Putter,Above Ground Level,Madrone,2.0,3.0,0.0,1.0,1.0
+Putter,Above Ground Level,Manzanita,3.0,3.0,0.0,2.0,2.0
+Putter,Aerobie,Arrow - Approach & Putter,1.0,2.0,0.0,1.0,1.0
+Fairway,Aerobie,Sharpshooter #1,7.0,3.0,0.0,3.0,3.0
+Midrange,Aerobie,Sharpshooter #2,4.0,3.0,0.0,3.0,3.0
+Putter,Aerobie,Sharpshooter #3,2.0,3.0,0.0,3.0,3.0
+Midrange,AquaFlight Discs,Dragonfly,5.0,4.0,-3.0,1.0,-2.0
+Distance,AquaFlight Discs,Osprey,12.0,4.0,-1.0,2.0,1.0
+Putter,AquaFlight Discs,Peace Frog,3.0,3.0,0.0,1.0,1.0
+Midrange,AquaFlight Discs,Pelican,6.0,5.0,-3.0,1.0,-2.0
+Fairway,AquaFlight Discs,Swift,7.0,5.0,-2.0,1.0,-1.0
+Distance,Arsenal Discs,50 Cal,10.0,4.0,-2.0,2.0,0.0
+Distance,Arsenal Discs,Air Strike,12.0,5.0,-3.0,3.0,0.0
+Putter,Arsenal Discs,C4,3.0,3.0,0.0,1.0,1.0
+Fairway,Arsenal Discs,Cyborg,9.0,5.0,-4.0,1.0,-3.0
+Midrange,Arsenal Discs,Morningstar,5.0,4.0,-1.0,2.0,1.0
+Midrange,Axiom Discs,Alias,5.0,5.0,-1.0,1.0,0.0
+Fairway,Axiom Discs,Clash,7.0,5.0,-1.0,3.0,2.0
+Midrange,Axiom Discs,Crave,6.0,5.0,-1.0,1.0,0.0
+Distance,Axiom Discs,Defy,12.0,5.0,-1.0,2.0,1.0
+Putter,Axiom Discs,Envy,2.0,3.0,0.0,2.0,2.0
+Distance,Axiom Discs,Excite,14.0,6.0,-3.0,2.0,-1.0
+Distance,Axiom Discs,Fireball,11.0,3.0,-0.5,4.0,3.5
+Distance,Axiom Discs,Insanity,11.0,5.0,-2.0,1.5,-0.5
+Midrange,Axiom Discs,Inspire,6.0,5.0,-2.5,1.0,-1.5
+Distance,Axiom Discs,Mayhem,13.0,5.0,-2.5,2.0,-0.5
+Distance,Axiom Discs,Panic,13.0,4.0,0.0,3.0,3.0
+Putter,Axiom Discs,Proxy,3.0,3.0,-1.0,1.0,0.0
+Distance,Axiom Discs,Tantrum,14.0,5.0,-2.0,2.0,0.0
+Distance,Axiom Discs,Tenacity,13.0,5.0,-2.0,1.0,-1.0
+Midrange,Axiom Discs,Theory,5.0,5.0,-2.0,0.5,-1.5
+Distance,Axiom Discs,Thrill,11.0,4.0,0.0,3.0,3.0
+Distance,Axiom Discs,Vanish,12.0,5.0,-3.0,2.0,-1.0
+Distance,Axiom Discs,Virus,11.0,5.0,-3.5,1.0,-2.5
+Distance,Axiom Discs,Wrath,11.0,5.0,-1.0,2.0,1.0
+Distance,Best Disc Golf Discs,MaxGlide,12.0,6.0,-3.0,2.0,-1.0
+Distance,Black Zombie Disc Golf,Berzerker,12.0,4.0,0.0,3.0,3.0
+Putter,Black Zombie Disc Golf,Chainsaw,3.0,4.0,0.0,1.0,1.0
+Putter,Crosslap Discgolf Parks,Credo,3.0,2.0,0.0,3.0,3.0
+Midrange,Crosslap Discgolf Parks,Lucky,5.0,5.0,-2.0,1.0,-1.0
+Distance,Daredevil Discs,Albatross,14.0,4.0,0.0,5.0,5.0
+Putter,Daredevil Discs,Beaver,2.0,3.0,-1.0,1.0,0.0
+Distance,Daredevil Discs,Bigfoot,13.0,6.0,-2.0,2.0,0.0
+Putter,Daredevil Discs,Bighorn,2.0,3.0,0.0,1.0,1.0
+Fairway,Daredevil Discs,Buffalo,9.0,4.0,-1.0,5.0,4.0
+Midrange,Daredevil Discs,Caribou,4.0,5.0,-3.0,1.0,-2.0
+Distance,Daredevil Discs,Gray Jay,14.0,4.0,0.0,5.0,5.0
+Putter,Daredevil Discs,Great Horned Owl,2.0,3.0,0.0,1.0,1.0
+Fairway,Daredevil Discs,Mammoth,9.0,4.0,-1.0,5.0,4.0
+Distance,Daredevil Discs,Merlin,14.0,4.0,-1.0,5.0,4.0
+Midrange,Daredevil Discs,Moose,4.0,5.0,0.0,2.0,2.0
+Fairway,Daredevil Discs,Ogopogo,9.0,4.0,-2.0,5.0,3.0
+Putter,Daredevil Discs,Polar Bear,2.0,3.0,0.0,1.0,1.0
+Midrange,Daredevil Discs,Pteranodon,4.0,6.0,-2.0,1.0,-1.0
+Fairway,Daredevil Discs,Sabertooth,9.0,4.0,0.0,5.0,5.0
+Distance,Daredevil Discs,Sasquatch,13.0,5.0,-5.0,1.0,-4.0
+Fairway,Daredevil Discs,Swift Fox,7.0,5.0,-3.0,1.0,-2.0
+Fairway,Daredevil Discs,Timberwolf,8.0,5.0,-1.0,1.0,0.0
+Midrange,Daredevil Discs,Walrus,4.0,5.0,0.0,3.0,3.0
+Fairway,Daredevil Discs,Wolverine,9.0,5.0,-2.0,2.0,0.0
+Putter,Daredevil Discs,Woodchuck,2.0,2.0,-1.0,0.0,-1.0
+Distance,Daredevil Discs,Yeti,13.0,6.0,-3.0,1.0,-2.0
+Midrange,Disc Golf Association,Aftershock,5.0,4.0,0.0,2.0,2.0
+Putter,Disc Golf Association,Blowfly,2.0,2.0,0.0,2.0,2.0
+Putter,Disc Golf Association,Gumbputt,2.0,2.0,0.0,2.0,2.0
+Distance,Disc Golf Association,Hellfire,10.0,1.0,0.0,5.0,5.0
+Distance,Disc Golf Association,Hurricane (Proline),12.0,5.0,-1.0,3.0,2.0
+Fairway,Disc Golf Association,Pipeline,8.0,5.0,0.0,2.0,2.0
+Putter,Disc Golf Association,Proline Breaker,3.0,3.0,0.0,3.0,3.0
+Midrange,Disc Golf Association,Quake,5.0,3.0,0.0,3.0,3.0
+Putter,Disc Golf Association,Reef (Atlantis),2.0,2.0,-1.0,1.0,0.0
+Distance,Disc Golf Association,Sail,11.0,5.0,-4.0,1.0,-3.0
+Putter,Disc Golf Association,Steady,2.0,3.0,0.0,2.0,2.0
+Putter,Disc Golf Association,Titanic,2.0,2.0,0.0,2.0,2.0
+Distance,Disc Golf Association,Torrent,14.0,5.0,-1.0,2.0,1.0
+Midrange,Disc Golf Association,Tremor,6.0,5.0,-4.0,1.0,-3.0
+Distance,Disc Golf Association,Undertow (ProLine),10.0,4.0,-1.0,1.0,0.0
+Distance,Discmania,CD - Craze,10.0,5.0,-1.0,2.0,1.0
+Fairway,Discmania,CD2,9.0,5.0,-1.0,2.0,1.0
+Distance,Discmania,CD3,11.0,5.0,-1.0,2.0,1.0
+Distance,Discmania,DD - Hysteria,11.0,5.0,0.0,2.0,2.0
+Distance,Discmania,DD2 - Frenzy,13.0,5.0,-2.0,2.0,0.0
+Distance,Discmania,DDx,12.0,6.0,-1.0,2.0,1.0
+Fairway,Discmania,FD - Jackal,7.0,6.0,-1.0,1.0,0.0
+Fairway,Discmania,FD2,7.0,4.0,0.0,2.0,2.0
+Fairway,Discmania,FD3,9.0,4.0,0.0,3.0,3.0
+Midrange,Discmania,MD,4.0,5.0,0.0,0.0,0.0
+Midrange,Discmania,MD1 - Midrange Driver,4.0,4.0,0.0,2.0,2.0
+Midrange,Discmania,MD2 - Fiend,4.0,5.0,0.0,2.0,2.0
+Midrange,Discmania,MD3 - Midrange Driver,5.0,5.0,0.0,2.0,2.0
+Midrange,Discmania,MD4,5.0,4.0,0.0,3.0,3.0
+Midrange,Discmania,MD5,5.0,3.0,0.0,4.0,4.0
+Putter,Discmania,P1 - Maniac,2.0,3.0,0.0,0.0,0.0
+Putter,Discmania,P1x,2.0,3.0,0.0,0.0,0.0
+Putter,Discmania,P2 - Psycho,2.0,3.0,0.0,1.0,1.0
+Putter,Discmania,P3 - Putt & Approach,3.0,2.0,0.0,3.0,3.0
+Putter,Discmania,P3x,3.0,2.0,0.0,3.0,3.0
+Distance,Discmania,PD - Freak,10.0,4.0,0.0,3.0,3.0
+Distance,Discmania,PD2 - Chaos,12.0,4.0,0.0,4.0,4.0
+Distance,Discmania,PDx,11.0,4.0,0.0,3.0,3.0
+Distance,Discmania,TD - Rush,10.0,5.0,-2.0,1.0,-1.0
+Distance,Discmania,TD2 - Fever,10.0,5.0,-4.0,1.0,-3.0
+Fairway,Discmania,TDx,9.0,5.0,-3.0,1.0,-2.0
+Putter,Discraft,APX,2.0,2.0,-1.0,1.0,0.0
+Fairway,Discraft,Archer,7.0,4.0,-3.0,1.0,-2.0
+Distance,Discraft,Avenger,10.0,5.0,0.0,3.0,3.0
+Distance,Discraft,Avenger-SS,10.0,5.0,-3.0,1.0,-2.0
+Putter,Discraft,Banger-GT,2.0,3.0,0.0,1.0,1.0
+Midrange,Discraft,Buzzz,5.0,4.0,-1.0,1.0,0.0
+Midrange,Discraft,Buzzz OS,5.0,4.0,0.0,3.0,3.0
+Midrange,Discraft,Buzzz-GT,5.0,5.0,0.0,1.0,1.0
+Midrange,Discraft,Buzzz-SS,5.0,4.0,-2.0,1.0,-1.0
+Putter,Discraft,Challenger,2.0,3.0,0.0,2.0,2.0
+Putter,Discraft,Challenger OS,2.0,3.0,0.0,3.0,3.0
+Putter,Discraft,Challenger SS,2.0,3.0,-1.0,2.0,1.0
+Midrange,Discraft,Comet,4.0,5.0,-2.0,1.0,-1.0
+Distance,Discraft,Crank,13.0,5.0,-2.0,2.0,0.0
+Distance,Discraft,Crank SS,13.0,5.0,-3.0,2.0,-1.0
+Distance,Discraft,Crush,11.0,5.0,0.0,4.0,4.0
+Fairway,Discraft,Cyclone,7.0,4.0,-1.0,2.0,1.0
+Midrange,Discraft,Drone,5.0,3.0,1.0,4.0,5.0
+Distance,Discraft,Flash,10.0,5.0,-2.0,3.0,1.0
+Distance,Discraft,Flick,12.0,3.0,1.0,5.0,6.0
+Putter,Discraft,Focus (Ace Race 2009),2.0,2.0,-1.0,2.0,1.0
+Distance,Discraft,Force,12.0,5.0,0.0,3.0,3.0
+Midrange,Discraft,Glide (Ace Race 2004),6.0,5.0,-3.0,1.0,-2.0
+Fairway,Discraft,Heat (Ace Race 2014),9.0,6.0,-3.0,1.0,-2.0
+Midrange,Discraft,Hornet (Ace Race 2010),5.0,5.0,0.0,4.0,4.0
+Midrange,Discraft,Impact (Ace Race 2007),5.0,5.0,-2.0,2.0,0.0
+Distance,Discraft,Kong,12.0,5.0,-1.0,3.0,2.0
+Putter,Discraft,Luna,2.0,3.0,0.0,1.0,1.0
+Distance,Discraft,Machete,11.0,4.0,0.0,4.0,4.0
+Putter,Discraft,Magnet,2.0,3.0,-1.0,1.0,0.0
+Fairway,Discraft,Mantis (Ace Race 2013),8.0,4.0,-2.0,2.0,0.0
+Midrange,Discraft,Meteor (Ace Race 2006),5.0,5.0,-3.0,1.0,-2.0
+Midrange,Discraft,Nebula (Ace Race 2008),5.0,4.0,-0.5,2.0,1.5
+Distance,Discraft,Nuke,13.0,5.0,-1.0,3.0,2.0
+Distance,Discraft,Nuke OS,13.0,4.0,0.0,4.0,4.0
+Distance,Discraft,Nuke SS,13.0,5.0,-3.0,3.0,0.0
+Fairway,Discraft,Predator,9.0,4.0,1.0,4.0,5.0
+Distance,Discraft,Pulse,11.0,4.0,0.0,3.0,3.0
+Distance,Discraft,Punisher,12.0,5.0,0.0,3.0,3.0
+Putter,Discraft,Putt'r,2.0,2.0,-1.0,1.0,0.0
+Fairway,Discraft,Raptor,9.0,3.0,0.0,4.0,4.0
+Putter,Discraft,Rattler Putter,2.0,2.0,-2.0,1.0,-1.0
+Fairway,Discraft,Reaper,8.0,3.0,0.0,4.0,4.0
+Midrange,Discraft,Ringer,4.0,4.0,0.0,2.0,2.0
+Midrange,Discraft,Ringer GT,4.0,4.0,0.0,3.0,3.0
+Fairway,Discraft,Riptide,9.0,4.0,0.0,3.0,3.0
+Putter,Discraft,Roach (Ace Race 2015),2.0,4.0,0.0,1.0,1.0
+Distance,Discraft,Rogue,11.0,4.0,-1.0,2.0,1.0
+Midrange,Discraft,SoL (Ace Race 2018),4.0,4.0,-2.0,1.0,-1.0
+Distance,Discraft,Spectra,12.0,5.0,-2.0,2.0,0.0
+Midrange,Discraft,Squall,6.0,4.0,-1.0,1.0,0.0
+Fairway,Discraft,Stalker,7.0,5.0,-1.0,2.0,1.0
+Fairway,Discraft,Sting (Ace Race 2017),7.0,5.0,-2.0,1.0,-1.0
+Midrange,Discraft,Stratus,5.0,4.0,-4.0,1.0,-3.0
+Distance,Discraft,Surge,11.0,5.0,-1.0,3.0,2.0
+Distance,Discraft,Surge-SS,11.0,5.0,-2.0,2.0,0.0
+Fairway,Discraft,Talon,8.0,3.0,1.0,3.0,4.0
+Midrange,Discraft,The Hawk,4.0,5.0,-2.0,2.0,0.0
+Distance,Discraft,Thrasher,12.0,5.0,-3.0,2.0,-1.0
+Fairway,Discraft,Tracker,8.0,5.0,-1.0,3.0,2.0
+Distance,Discraft,Tsunami,10.0,3.0,0.0,4.0,4.0
+Fairway,Discraft,Undertaker,9.0,5.0,-1.0,2.0,1.0
+Distance,Discraft,Venom,10.0,4.0,0.0,4.0,4.0
+Distance,Discraft,Vulture,10.0,5.0,0.0,2.0,2.0
+Midrange,Discraft,Wasp,5.0,3.0,0.0,2.0,2.0
+Distance,Discraft,Wildcat,10.0,4.0,-2.0,3.0,1.0
+Fairway,Discraft,XL,7.0,4.0,-2.0,1.0,-1.0
+Fairway,Discraft,Xpress,8.0,5.0,-3.0,1.0,-2.0
+Fairway,Discraft,XS,7.0,4.0,-1.0,3.0,2.0
+Midrange,Discraft,Zombee (Ace Race 2012),6.0,4.0,-1.0,1.0,0.0
+Midrange,Discraft,Zone,4.0,3.0,0.0,3.0,3.0
+Fairway,Dynamic Discs,Breakout,8.0,5.0,-1.0,1.5,0.5
+Distance,Dynamic Discs,Captain,13.0,5.0,-2.0,2.0,0.0
+Fairway,Dynamic Discs,Convict,9.0,4.0,-0.5,3.0,2.5
+Distance,Dynamic Discs,Criminal,10.0,3.0,1.0,4.0,5.0
+Distance,Dynamic Discs,Defender,13.0,5.0,0.0,3.0,3.0
+Putter,Dynamic Discs,Deputy,3.0,4.0,-1.5,0.0,-1.5
+Midrange,Dynamic Discs,EMAC Truth,5.0,5.0,0.0,2.0,2.0
+Distance,Dynamic Discs,Enforcer,12.0,4.0,-0.5,4.0,3.5
+Fairway,Dynamic Discs,Escape,9.0,5.0,-0.5,2.0,1.5
+Midrange,Dynamic Discs,Evidence,5.0,5.0,-1.0,0.0,-1.0
+Fairway,Dynamic Discs,Felon,9.0,3.0,0.5,4.0,4.5
+Distance,Dynamic Discs,Freedom,14.0,5.0,-2.0,3.0,1.0
+Midrange,Dynamic Discs,Fugitive,5.0,5.0,-0.5,1.5,1.0
+Putter,Dynamic Discs,Gavel,3.0,5.0,-2.0,0.5,-1.5
+Fairway,Dynamic Discs,Getaway,9.0,5.0,-0.5,3.0,2.5
+Putter,Dynamic Discs,Judge,2.0,4.0,0.0,1.5,1.5
+Midrange,Dynamic Discs,Justice,5.0,3.0,0.5,4.0,4.5
+Putter,Dynamic Discs,Marshal,3.0,4.0,0.0,1.0,1.0
+Fairway,Dynamic Discs,Maverick,7.0,4.0,-1.5,2.0,0.5
+Midrange,Dynamic Discs,Patrol,5.0,5.0,-3.0,1.0,-2.0
+Midrange,Dynamic Discs,Proof,5.0,6.0,-3.0,1.0,-2.0
+Distance,Dynamic Discs,Renegade,11.0,5.0,-1.5,3.5,2.0
+Distance,Dynamic Discs,Sheriff,13.0,5.0,-1.0,2.0,1.0
+Putter,Dynamic Discs,Slammer,2.0,2.0,0.0,3.0,3.0
+Midrange,Dynamic Discs,Suspect,4.0,3.0,0.0,3.0,3.0
+Fairway,Dynamic Discs,Thief,8.0,5.0,0.0,2.0,2.0
+Distance,Dynamic Discs,Trespass,12.0,5.0,-0.5,3.0,2.5
+Midrange,Dynamic Discs,Truth,5.0,5.0,0.0,2.0,2.0
+Midrange,Dynamic Discs,Verdict,5.0,4.0,0.0,3.5,3.5
+Putter,Dynamic Discs,Warden,2.0,4.0,0.0,0.5,0.5
+Midrange,Dynamic Discs,Warrant,5.0,5.0,-2.0,0.0,-2.0
+Fairway,Dynamic Discs,Witness,8.0,6.0,-3.0,1.0,-2.0
+Fairway,Element Discs,Chromium,9.0,5.0,-1.0,1.0,0.0
+Putter,Element Discs,Iridium,2.0,3.0,0.0,2.0,2.0
+Putter,Element Discs,Plutonium,3.0,3.0,0.0,1.0,1.0
+Midrange,Element Discs,Uranium,4.0,2.0,0.0,2.0,2.0
+Putter,Eurodisc,Delivery,3.0,3.0,0.0,0.0,0.0
+Putter,Eurodisc,Delivery Organic,3.0,3.0,0.0,0.0,0.0
+Midrange,Eurodisc,Transition,6.0,5.0,0.0,1.0,1.0
+Midrange,Eurodisc,Transition Organic,6.0,5.0,0.0,1.0,1.0
+Fairway,Eurodisc,Transporter,8.0,6.0,-2.0,1.0,-1.0
+Fairway,Eurodisc,Transporter Organic,8.0,6.0,-2.0,1.0,-1.0
+Putter,Fly High Discs,AK-47,3.0,4.0,0.0,1.0,1.0
+Distance,Fly High Discs,Diesel,11.0,4.0,0.0,3.0,3.0
+Fairway,Fly High Discs,Jack the Ripper,9.0,5.0,0.0,1.0,1.0
+Midrange,Fly High Discs,KGB,5.0,5.0,-1.0,1.0,0.0
+Midrange,Fly High Discs,Pure O.G.,6.0,4.0,-1.0,2.0,1.0
+Distance,Fly High Discs,Train Wreck,13.0,5.0,-2.0,2.0,0.0
+Putter,Fly High Discs,White Widow,3.0,4.0,-1.0,0.0,-1.0
+Distance,Fourth Circle Discs,Taipan,13.0,5.0,0.0,3.0,3.0
+Distance,Full Turn Discs,Cruise,13.0,4.0,-2.0,1.0,-1.0
+Fairway,Full Turn Discs,Drifter,9.0,4.0,-1.0,2.0,1.0
+Midrange,Full Turn Discs,Navigator,5.0,4.0,-1.0,2.0,1.0
+Putter,Full Turn Discs,Passport,2.0,3.0,-1.0,1.0,0.0
+Fairway,Full Turn Discs,Traveler,9.0,4.0,0.0,2.0,2.0
+Distance,Full Turn Discs,Voyage,12.0,5.0,0.0,3.0,3.0
+Putter,Galaxy Disc Golf,Magneton,2.0,3.0,0.0,3.0,3.0
+Distance,Galaxy Disc Golf,Meteorite,11.0,3.0,-0.5,2.0,1.5
+Midrange,Galaxy Disc Golf,Orbit,5.0,4.0,0.0,3.0,3.0
+Fairway,Galaxy Disc Golf,Shooting Star,7.0,5.0,-2.0,1.0,-1.0
+Fairway,Gateway Disc Sports,Apache,9.0,6.0,-2.0,1.0,-1.0
+Fairway,Gateway Disc Sports,Apache (retooled),9.0,6.0,-2.0,1.0,-1.0
+Distance,Gateway Disc Sports,Apex,12.0,6.0,-1.0,2.0,1.0
+Fairway,Gateway Disc Sports,Assassin,9.0,5.0,-1.0,1.0,0.0
+Fairway,Gateway Disc Sports,Assassin (retooled),9.0,5.0,-1.0,1.0,0.0
+Midrange,Gateway Disc Sports,Blaze,6.0,4.0,0.0,3.0,3.0
+Putter,Gateway Disc Sports,Chief,3.0,3.0,0.0,1.0,1.0
+Putter,Gateway Disc Sports,Chief (retooled),3.0,3.0,0.0,1.0,1.0
+Putter,Gateway Disc Sports,Chief OS,3.0,3.0,0.0,2.0,2.0
+Midrange,Gateway Disc Sports,Demon,6.0,4.0,0.0,4.0,4.0
+Putter,Gateway Disc Sports,Devilhawk,3.0,3.0,0.0,4.0,4.0
+Fairway,Gateway Disc Sports,Diablo,9.0,5.0,0.0,2.0,2.0
+Distance,Gateway Disc Sports,Diablo DT,11.0,5.0,-1.0,2.0,1.0
+Fairway,Gateway Disc Sports,Hybrid,7.0,4.0,-0.5,3.0,2.5
+Distance,Gateway Disc Sports,Illusion,12.0,5.0,-1.0,3.0,2.0
+Distance,Gateway Disc Sports,Journey - LS,12.0,6.0,-2.0,1.0,-1.0
+Putter,Gateway Disc Sports,Magic,2.0,3.0,-1.0,0.0,-1.0
+Midrange,Gateway Disc Sports,Mystic,5.0,5.0,-2.0,0.0,-2.0
+Distance,Gateway Disc Sports,Ninja,10.0,6.0,-1.0,2.0,1.0
+Distance,Gateway Disc Sports,Rage,10.0,5.0,-0.5,3.5,3.0
+Distance,Gateway Disc Sports,Rage (retooled),10.0,5.0,-0.5,3.5,3.0
+Fairway,Gateway Disc Sports,Sabre,7.0,5.0,-1.0,1.0,0.0
+Distance,Gateway Disc Sports,Samurai,13.0,5.0,-2.0,1.0,-1.0
+Putter,Gateway Disc Sports,Shaman,3.0,4.0,1.0,2.0,3.0
+Distance,Gateway Disc Sports,Siren,13.0,5.0,-2.0,1.0,-1.0
+Distance,Gateway Disc Sports,Slayer,13.0,5.0,-1.0,2.0,1.0
+Distance,Gateway Disc Sports,Slayer (retooled),13.0,5.0,-1.0,2.0,1.0
+Distance,Gateway Disc Sports,Speed Demon,12.0,3.0,0.0,4.0,4.0
+Distance,Gateway Disc Sports,Spirit,12.0,4.0,0.0,4.0,4.0
+Putter,Gateway Disc Sports,Voodoo,2.0,3.0,0.0,0.0,0.0
+Putter,Gateway Disc Sports,Voodoo (revised),2.0,3.0,0.0,0.0,0.0
+Putter,Gateway Disc Sports,Warlock,2.0,3.0,0.0,1.0,1.0
+Midrange,Gateway Disc Sports,Warrior (old),5.0,4.0,0.0,3.0,3.0
+Putter,Gateway Disc Sports,Warspear,2.0,3.0,0.0,2.5,2.5
+Putter,Gateway Disc Sports,Wizard,2.0,3.0,0.0,2.0,2.0
+Putter,Gateway Disc Sports,Wizard (revised),2.0,3.0,0.0,2.0,2.0
+Distance,Guru Disc Golf,Fenris,13.0,5.0,-1.0,2.0,1.0
+Midrange,Guru Disc Golf,Midgard,6.0,5.0,-1.0,1.0,0.0
+Putter,Guru Disc Golf,Mjølner,2.0,3.0,0.0,1.0,1.0
+Distance,Guru Disc Golf,Sleipner,10.0,4.0,-1.0,2.0,1.0
+Midrange,Guru Disc Golf,Thor,4.0,4.0,0.0,2.0,2.0
+Midrange,Infinite Discs,Anubis,5.0,5.0,0.0,0.0,0.0
+Midrange,Infinite Discs,Chariot,5.0,5.0,0.0,1.0,1.0
+Fairway,Infinite Discs,Exodus,7.0,5.0,-0.5,2.0,1.5
+Putter,Infinite Discs,Myth,2.0,3.0,0.0,2.0,2.0
+Distance,Infinite Discs,Pharaoh,13.0,6.0,-1.0,2.0,1.0
+Midrange,Infinite Discs,Ra,5.0,4.0,0.0,3.0,3.0
+Distance,Infinite Discs,Slab,12.0,3.0,0.0,4.0,4.0
+Fairway,Infinite Discs,Sphinx,9.0,6.0,-3.0,1.0,-2.0
+Putter,Infinite Discs,Tomb,3.0,4.0,0.0,1.0,1.0
+Putter,Innova,Ace,2.0,3.0,-2.0,1.0,-1.0
+Putter,Innova,Aero,3.0,6.0,0.0,0.0,0.0
+Distance,Innova,Ape,13.0,5.0,0.0,4.0,4.0
+Fairway,Innova,Archangel,8.0,6.0,-4.0,1.0,-3.0
+Distance,Innova,Archon,11.0,5.0,-2.0,2.0,0.0
+Midrange,Innova,Atlas,5.0,4.0,0.0,1.0,1.0
+Putter,Innova,Aviar,2.0,3.0,0.0,1.0,1.0
+Putter,Innova,Aviar 3,3.0,2.0,0.0,2.0,2.0
+Putter,Innova,Aviar XD,3.0,4.0,-1.0,1.0,0.0
+Putter,Innova,AviarX3,3.0,2.0,0.0,3.0,3.0
+Fairway,Innova,Banshee,7.0,3.0,0.0,3.0,3.0
+Distance,Innova,Beast,10.0,5.0,-2.0,2.0,0.0
+Putter,Innova,Birdie,1.0,2.0,0.0,0.0,0.0
+Distance,Innova,Boss,13.0,5.0,-1.0,3.0,2.0
+Putter,Innova,Bulldog,3.0,3.0,0.0,3.0,3.0
+Putter,Innova,Bullfrog,3.0,1.0,0.0,1.0,1.0
+Midrange,Innova,Caiman,5.5,2.0,0.0,4.0,4.0
+Midrange,Innova,Cheetah,6.0,4.0,-2.0,2.0,0.0
+Midrange,Innova,Cobra,4.0,5.0,-2.0,2.0,0.0
+Distance,Innova,Colossus,14.0,5.0,-2.0,3.0,1.0
+Putter,Innova,Colt,3.0,4.0,-1.0,1.0,0.0
+Midrange,Innova,Commander,5.0,3.0,0.0,4.0,4.0
+Distance,Innova,Corvette,14.0,6.0,0.0,2.0,2.0
+Putter,Innova,Coupe,3.0,3.0,-1.0,1.0,0.0
+Midrange,Innova,Coyote,4.0,5.0,0.0,1.0,1.0
+Midrange,Innova,CRO,5.0,3.0,0.0,2.0,2.0
+Distance,Innova,Daedalus,13.0,6.0,-3.0,2.0,-1.0
+Putter,Innova,Dart,3.0,4.0,0.0,0.0,0.0
+Distance,Innova,Destroyer,12.0,5.0,-1.0,3.0,2.0
+Distance,Innova,Dominator,13.0,5.0,-1.0,2.0,1.0
+Fairway,Innova,Dragon,8.0,5.0,-2.0,2.0,0.0
+Fairway,Innova,Eagle ,7.0,4.0,-1.0,3.0,2.0
+Fairway,Innova,Firebird,9.0,3.0,0.0,4.0,4.0
+Fairway,Innova,Firebird L (FL),9.0,3.0,0.0,2.0,2.0
+Distance,Innova,Firestorm,14.0,4.0,0.0,3.0,3.0
+Midrange,Innova,Foxbat,5.0,6.0,-1.0,0.0,-1.0
+Midrange,Innova,Gator,5.0,2.0,0.0,3.0,3.0
+Midrange,Innova,Gator3,5.0,2.0,0.0,3.0,3.0
+Midrange,Innova,Gazelle,6.0,4.0,0.0,2.0,2.0
+Distance,Innova,Groove,13.0,6.0,-2.0,2.0,0.0
+Putter,Innova,Hawg,2.0,1.0,0.0,3.5,3.5
+Putter,Innova,Hydra,3.0,3.0,0.0,2.0,2.0
+Distance,Innova,Katana,13.0,5.0,-3.0,3.0,0.0
+Midrange,Innova,Kite,5.0,6.0,-3.0,1.0,-2.0
+Distance,Innova,Krait,11.0,5.0,-1.0,2.0,1.0
+Midrange,Innova,Leopard,6.0,5.0,-2.0,1.0,-1.0
+Fairway,Innova,Leopard 3,7.0,5.0,-2.0,1.0,-1.0
+Midrange,Innova,Mako,4.0,5.0,0.0,0.0,0.0
+Midrange,Innova,Mako 3,5.0,5.0,0.0,0.0,0.0
+Distance,Innova,Mamba,11.0,6.0,-5.0,1.0,-4.0
+Midrange,Innova,Manta,5.0,5.0,-2.0,1.0,-1.0
+Distance,Innova,Max,11.0,3.0,0.0,5.0,5.0
+Putter,Innova,Mirage,3.0,4.0,-3.0,0.0,-3.0
+Distance,Innova,Monarch,10.0,5.0,-4.0,1.0,-3.0
+Distance,Innova,Monster,10.0,3.0,0.0,5.0,5.0
+Distance,Innova,Mystere,11.0,6.0,-2.0,2.0,0.0
+Putter,Innova,Nova,2.0,3.0,0.0,0.0,0.0
+Distance,Innova,ORC,10.0,4.0,-1.0,3.0,2.0
+Midrange,Innova,Panther,5.0,4.0,-2.0,1.0,-1.0
+Putter,Innova,Pig,3.0,1.0,0.0,3.0,3.0
+Putter,Innova,Pole Cat,1.0,3.0,0.0,0.0,0.0
+Midrange,Innova,Puma,4.0,3.0,-4.0,1.0,-3.0
+Fairway,Innova,Python,7.0,3.0,-1.0,2.0,1.0
+Midrange,Innova,Ram,6.0,4.0,1.0,4.0,5.0
+Midrange,Innova,Rat,4.0,2.0,0.0,3.0,3.0
+Midrange,Innova,Raven,6.0,4.0,-2.0,2.0,0.0
+Putter,Innova,Rhyno,2.0,1.0,0.0,3.0,3.0
+Fairway,Innova,Roadrunner,9.0,5.0,-4.0,1.0,-3.0
+Midrange,Innova,Roc,4.0,4.0,0.0,3.0,3.0
+Midrange,Innova,Roc 3,5.0,4.0,0.0,3.0,3.0
+Midrange,Innova,RocX3,5.0,4.0,0.0,3.5,3.5
+Fairway,Innova,Savant,9.0,5.0,-1.0,2.0,1.0
+Midrange,Innova,Shark,4.0,4.0,0.0,2.0,2.0
+Midrange,Innova,Shark 3,5.0,4.0,0.0,2.0,2.0
+Distance,Innova,Shryke,13.0,6.0,-2.0,2.0,0.0
+Fairway,Innova,Sidewinder,9.0,5.0,-3.0,1.0,-2.0
+Midrange,Innova,Skeeter,5.0,5.0,-1.0,1.0,0.0
+Putter,Innova,Sonic,1.0,2.0,-4.0,0.0,-4.0
+Midrange,Innova,Spider,5.0,3.0,0.0,1.0,1.0
+Distance,Innova,Starfire,10.0,4.0,0.0,3.0,3.0
+Midrange,Innova,Stingray,4.0,5.0,-3.0,1.0,-2.0
+Putter,Innova,Stud,3.0,3.0,0.0,2.0,2.0
+Distance,Innova,Tee-Rex,11.0,4.0,0.0,4.0,4.0
+Fairway,Innova,TeeBird,7.0,5.0,0.0,2.0,2.0
+Fairway,Innova,Teebird 3,8.0,4.0,0.0,2.0,2.0
+Fairway,Innova,TeeBird L (TL),7.0,5.0,0.0,1.0,1.0
+Distance,Innova,TeeDevil,12.0,5.0,-1.0,2.0,1.0
+Distance,Innova,Tern,12.0,6.0,-3.0,2.0,-1.0
+Fairway,Innova,Thunderbird,9.0,5.0,0.0,2.0,2.0
+Fairway,Innova,TL 3,8.0,4.0,0.0,1.0,1.0
+Fairway,Innova,Valkyrie,9.0,4.0,-2.0,2.0,0.0
+Fairway,Innova,Viking,9.0,4.0,-1.0,2.0,1.0
+Midrange,Innova,Viper,6.0,4.0,1.0,5.0,6.0
+Midrange,Innova,VRoc,4.0,4.0,0.0,1.0,1.0
+Distance,Innova,Vulcan,13.0,5.0,-4.0,2.0,-2.0
+Distance,Innova,Wahoo,12.0,6.0,-2.0,2.0,0.0
+Midrange,Innova,Wedge,3.5,3.0,-3.0,1.0,-2.0
+Putter,Innova,Whale,2.0,3.0,0.0,1.0,1.0
+Midrange,Innova,Whippet,6.0,3.0,1.0,5.0,6.0
+Midrange,Innova,Wolf,4.0,3.0,-4.0,1.0,-3.0
+Midrange,Innova,Wombat,5.0,6.0,-1.0,0.0,-1.0
+Midrange,Innova,Wombat3,5.0,6.0,-1.0,0.0,-1.0
+Distance,Innova,Wraith,11.0,5.0,-1.0,3.0,2.0
+Distance,Innova,XCaliber,12.0,5.0,0.0,4.0,4.0
+Putter,Kastaplast AB,Berg,1.0,2.0,0.0,2.0,2.0
+Fairway,Kastaplast AB,Falk,9.0,6.0,-2.5,2.0,-0.5
+Distance,Kastaplast AB,Grym,13.0,5.0,-2.0,2.0,0.0
+Distance,Kastaplast AB,Grym X,13.0,5.0,-1.0,2.0,1.0
+Midrange,Kastaplast AB,Kaxe,6.0,4.0,0.0,3.0,3.0
+Midrange,Kastaplast AB,Kaxe Z,6.0,5.0,0.0,2.0,2.0
+Distance,Kastaplast AB,Rask (new),14.0,3.0,0.0,4.0,4.0
+Distance,Kastaplast AB,Rask (old),14.0,3.0,0.0,4.0,4.0
+Putter,Kastaplast AB,Reko,3.0,3.0,0.0,1.0,1.0
+Fairway,Kastaplast AB,Stål,9.0,4.0,0.0,3.0,3.0
+Distance,Las Aves Disc Golf,Ka-kaa,12.0,5.0,-2.0,2.0,0.0
+Midrange,Las Aves Disc Golf,Wo-Hoo,6.0,5.0,0.0,2.0,2.0
+Midrange,Latitude 64,Anchor,5.0,4.0,0.0,3.0,3.0
+Distance,Latitude 64,Ballista,14.0,5.0,-1.0,3.0,2.0
+Distance,Latitude 64,Ballista Pro,14.0,4.0,0.0,3.0,3.0
+Distance,Latitude 64,Blitz,11.0,3.0,0.0,4.0,4.0
+Distance,Latitude 64,Bolt,13.0,6.0,-2.0,3.0,1.0
+Fairway,Latitude 64,Bryce,9.0,6.0,-2.0,2.0,0.0
+Putter,Latitude 64,Caltrop,2.0,2.0,0.0,2.0,2.0
+Midrange,Latitude 64,Claymore,5.0,5.0,-1.0,1.0,0.0
+Midrange,Latitude 64,Compass,5.0,5.0,0.0,1.0,1.0
+Midrange,Latitude 64,Core,6.0,5.0,-0.5,1.0,0.5
+Fairway,Latitude 64,Culverin,9.0,5.0,-0.5,3.0,2.5
+Distance,Latitude 64,Cutlass,13.0,5.0,0.0,3.5,3.5
+Putter,Latitude 64,Dagger,2.0,5.0,0.0,1.0,1.0
+Fairway,Latitude 64,Diamond,8.0,6.0,-3.0,1.0,-2.0
+Fairway,Latitude 64,Explorer,7.0,5.0,0.0,2.0,2.0
+Fairway,Latitude 64,Falchion,8.0,5.0,-1.0,2.0,1.0
+Distance,Latitude 64,Flow,11.0,6.0,-0.5,2.0,1.5
+Midrange,Latitude 64,Fuji,4.0,4.0,0.0,2.0,2.0
+Fairway,Latitude 64,Fury,9.0,6.0,-2.0,2.0,0.0
+Putter,Latitude 64,Gauntlet,2.0,4.0,0.0,1.0,1.0
+Distance,Latitude 64,Gladiator,13.0,5.0,0.0,3.5,3.5
+Midrange,Latitude 64,Gobi,6.0,5.0,-0.5,1.0,0.5
+Distance,Latitude 64,Halo,13.0,5.0,-0.5,3.0,2.5
+Distance,Latitude 64,Havoc,13.0,5.0,-1.0,3.0,2.0
+Fairway,Latitude 64,Jade,9.0,6.0,-2.0,1.0,-1.0
+Distance,Latitude 64,Knight,14.0,4.0,-1.5,3.0,1.5
+Putter,Latitude 64,Macana,2.0,5.0,0.0,1.0,1.0
+Midrange,Latitude 64,Mace,5.0,5.0,0.0,2.0,2.0
+Fairway,Latitude 64,Maul,7.0,7.0,-2.0,1.0,-1.0
+Midrange,Latitude 64,Medius,5.0,5.0,-1.0,2.0,1.0
+Putter,Latitude 64,Mercy,2.0,4.0,0.0,1.0,1.0
+Distance,Latitude 64,Missilen,15.0,3.0,-0.5,4.5,4.0
+Distance,Latitude 64,Musket,10.0,5.0,-1.0,3.0,2.0
+Midrange,Latitude 64,Pain,4.0,4.0,0.0,4.0,4.0
+Midrange,Latitude 64,Pearl,4.0,6.0,-4.0,0.0,-4.0
+Fairway,Latitude 64,Pioneer,9.0,3.0,0.0,4.0,4.0
+Fairway,Latitude 64,Primitus,9.0,5.0,0.0,2.0,2.0
+Putter,Latitude 64,Pure,3.0,3.0,-1.0,1.0,0.0
+Distance,Latitude 64,Raketen,15.0,4.0,-2.0,3.0,1.0
+Distance,Latitude 64,Recoil,12.0,4.0,0.0,3.0,3.0
+Distance,Latitude 64,Riot,11.0,4.0,-1.0,2.0,1.0
+Fairway,Latitude 64,River,7.0,7.0,-1.0,1.0,0.0
+Midrange,Latitude 64,River Pro,6.0,5.0,0.0,2.0,2.0
+Putter,Latitude 64,Ruby,3.0,5.0,-3.0,1.0,-2.0
+Fairway,Latitude 64,Saint,9.0,7.0,-1.0,2.0,1.0
+Fairway,Latitude 64,Saint Pro,8.0,5.0,-0.5,2.0,1.5
+Putter,Latitude 64,Sarek,2.0,4.0,0.0,1.5,1.5
+Distance,Latitude 64,Scythe,12.0,3.0,0.0,4.0,4.0
+Fairway,Latitude 64,Spark,7.0,4.0,-0.5,3.0,2.5
+Midrange,Latitude 64,Spike,4.0,3.0,-1.0,1.0,0.0
+Distance,Latitude 64,Stiletto,13.0,3.0,0.5,5.0,5.5
+Fairway,Latitude 64,Striker,8.0,5.0,0.0,2.0,2.0
+Midrange,Latitude 64,Trident,6.0,4.0,-0.5,3.0,2.5
+Distance,Latitude 64,Villain,12.0,4.0,0.0,4.0,4.0
+Fairway,Latitude 64,Vision,8.0,6.0,-2.0,2.0,0.0
+Fairway,Latitude 64,XXX,7.0,3.0,0.0,4.0,4.0
+Fairway,Latitude 64,Zion,9.0,4.0,-0.5,3.0,2.5
+Distance,Legacy Discs,Aftermath,13.0,4.0,-2.0,3.0,1.0
+Fairway,Legacy Discs,Bandit,9.0,5.0,-2.0,1.0,-1.0
+Distance,Legacy Discs,Cannon,14.0,5.0,-2.5,3.0,0.5
+Putter,Legacy Discs,Clozer,2.0,3.0,0.0,2.0,2.0
+Putter,Legacy Discs,Clutch,2.0,3.0,0.0,1.0,1.0
+Fairway,Legacy Discs,Enemy,9.0,3.0,0.0,4.0,4.0
+Distance,Legacy Discs,Fighter,10.0,3.0,0.0,4.0,4.0
+Midrange,Legacy Discs,Gauge,5.0,5.0,0.0,1.0,1.0
+Midrange,Legacy Discs,Ghost,4.0,5.0,0.0,3.0,3.0
+Putter,Legacy Discs,Hunter,3.0,4.0,0.0,0.0,0.0
+Fairway,Legacy Discs,Mongoose,9.0,5.0,-3.0,1.0,-2.0
+Distance,Legacy Discs,Nemesis,10.0,6.0,-4.0,2.0,-2.0
+Distance,Legacy Discs,Outlaw,12.0,5.0,-1.0,3.0,2.0
+Distance,Legacy Discs,Outlaw (retooled),12.0,5.0,-1.0,3.0,2.0
+Fairway,Legacy Discs,Patriot,7.0,5.0,-2.0,1.0,-1.0
+Fairway,Legacy Discs,Phenom,8.0,5.0,-1.0,2.0,1.0
+Putter,Legacy Discs,Prowler,2.0,3.0,0.0,1.5,1.5
+Midrange,Legacy Discs,Pursuit,5.0,3.0,0.0,3.0,3.0
+Distance,Legacy Discs,Rampage,14.0,5.0,-1.0,4.0,3.0
+Midrange,Legacy Discs,Recluse,4.0,3.0,0.0,4.0,4.0
+Distance,Legacy Discs,Recon,13.0,5.0,-1.0,3.0,2.0
+Fairway,Legacy Discs,Rival,7.0,5.0,0.0,2.0,2.0
+Fairway,Lightning Discs,#1 Flyer,8.0,5.0,-2.0,2.0,0.0
+Fairway,Lightning Discs,#1 Helix,8.0,4.0,-1.0,3.0,2.0
+Fairway,Lightning Discs,#1 Hyzer,7.0,3.0,0.0,4.0,4.0
+Fairway,Lightning Discs,#1 Roller,7.0,3.0,-2.0,1.0,-1.0
+Fairway,Lightning Discs,#2 Driver,8.0,5.0,-2.0,2.0,0.0
+Fairway,Lightning Discs,#2 Helix,8.0,5.0,-1.0,3.0,2.0
+Midrange,Lightning Discs,#2 Hookshot,5.0,5.0,-1.0,3.0,2.0
+Midrange,Lightning Discs,#2 Hyzer,5.0,5.0,1.0,4.0,5.0
+Putter,Lightning Discs,#2 Putter,1.0,2.0,-2.0,1.0,-1.0
+Midrange,Lightning Discs,#2 Slice,6.0,5.0,-3.0,1.0,-2.0
+Putter,Lightning Discs,#2 Upshot,2.0,3.0,-1.0,1.0,0.0
+Fairway,Lightning Discs,#4 Driver,7.0,4.0,-1.0,2.0,1.0
+Distance,Millennium Golf Discs,Aquarius,10.0,5.0,-4.0,2.0,-2.0
+Distance,Millennium Golf Discs,Aries,11.0,6.0,-3.0,1.0,-2.0
+Distance,Millennium Golf Discs,Astra,11.0,5.0,-2.0,2.0,0.0
+Midrange,Millennium Golf Discs,Aurora MF,4.0,5.0,-1.0,1.0,0.0
+Fairway,Millennium Golf Discs,EXP,7.0,3.0,0.0,4.0,4.0
+Fairway,Millennium Golf Discs,JLS,8.0,5.0,-2.0,2.0,0.0
+Fairway,Millennium Golf Discs,Marksman,9.0,4.0,-1.0,2.0,1.0
+Midrange,Millennium Golf Discs,Moab,6.0,4.0,1.0,5.0,6.0
+Midrange,Millennium Golf Discs,Mortar,5.0,4.0,0.0,3.0,3.0
+Putter,Millennium Golf Discs,Omega,2.0,3.0,-1.0,1.0,0.0
+Putter,Millennium Golf Discs,Omega SuperSoft Putter Big Bead,2.0,3.0,-1.0,1.0,0.0
+Fairway,Millennium Golf Discs,Orion LF,9.0,5.0,-1.0,3.0,2.0
+Fairway,Millennium Golf Discs,Orion LS,9.0,5.0,-2.0,2.0,0.0
+Fairway,Millennium Golf Discs,Polaris LF,9.0,5.0,-2.0,2.5,0.5
+Fairway,Millennium Golf Discs,Polaris LS,8.0,5.0,-2.0,1.0,-1.0
+Fairway,Millennium Golf Discs,QJLS,8.0,5.0,-2.0,2.0,0.0
+Distance,Millennium Golf Discs,Quasar,13.0,5.0,-1.0,4.0,3.0
+Distance,Millennium Golf Discs,Scorpius,13.0,4.0,-1.0,3.0,2.0
+Midrange,Millennium Golf Discs,Sentinel MF,5.0,4.0,0.0,4.0,4.0
+Putter,Millennium Golf Discs,Tank - Panzer,2.0,2.0,0.0,2.0,2.0
+Midrange,Millennium Golf Discs,Taurus,4.0,4.0,0.0,4.0,4.0
+Fairway,Millennium Golf Discs,Veteran,7.0,4.0,0.0,1.0,1.0
+Fairway,Mint Discs,Alpha,8.0,4.0,0.0,2.0,2.0
+Fairway,MVP Disc Sports,Amp,8.0,5.0,-1.5,1.0,-0.5
+Putter,MVP Disc Sports,Anode,3.0,3.0,0.0,0.5,0.5
+Putter,MVP Disc Sports,Atom,3.0,3.0,0.0,1.0,1.0
+Midrange,MVP Disc Sports,Axis,5.0,5.0,-1.0,1.0,0.0
+Distance,MVP Disc Sports,Catalyst,13.0,6.0,-2.0,2.0,0.0
+Midrange,MVP Disc Sports,Deflector,5.0,4.0,0.0,4.0,4.0
+Distance,MVP Disc Sports,Dimension,14.0,5.0,0.0,3.0,3.0
+Distance,MVP Disc Sports,Energy,13.0,4.0,0.0,4.0,4.0
+Fairway,MVP Disc Sports,Impulse,9.0,5.0,-3.0,1.0,-2.0
+Fairway,MVP Disc Sports,Inertia,9.0,5.0,-2.0,2.0,0.0
+Putter,MVP Disc Sports,Ion,3.0,3.0,0.0,1.5,1.5
+Distance,MVP Disc Sports,Limit,14.0,4.0,0.0,4.0,4.0
+Midrange,MVP Disc Sports,Matrix,5.0,4.0,-1.0,2.0,1.0
+Fairway,MVP Disc Sports,Motion,9.0,4.0,0.0,4.0,4.0
+Distance,MVP Disc Sports,Nitro,13.0,4.0,-0.5,3.0,2.5
+Distance,MVP Disc Sports,Octane,13.0,5.0,-1.0,2.0,1.0
+Distance,MVP Disc Sports,Orbital,11.0,5.0,-4.5,1.0,-3.5
+Putter,MVP Disc Sports,Particle,3.0,3.0,0.0,2.5,2.5
+Distance,MVP Disc Sports,Phase,11.0,4.0,0.0,4.0,4.0
+Distance,MVP Disc Sports,Photon,11.0,5.0,-1.0,2.5,1.5
+Distance,MVP Disc Sports,Relativity,14.0,6.0,-3.0,1.5,-1.5
+Midrange,MVP Disc Sports,Relay,6.0,5.0,-2.0,1.0,-1.0
+Fairway,MVP Disc Sports,Resistor,7.0,4.0,0.0,3.5,3.5
+Fairway,MVP Disc Sports,Servo,7.0,5.0,-1.0,2.0,1.0
+Fairway,MVP Disc Sports,Shock,8.0,5.0,0.0,2.5,2.5
+Midrange,MVP Disc Sports,Signal,6.0,5.0,-3.0,1.0,-2.0
+Putter,MVP Disc Sports,Spin,3.0,4.0,-2.0,0.0,-2.0
+Fairway,MVP Disc Sports,Switch,7.0,5.0,-1.5,1.0,-0.5
+Midrange,MVP Disc Sports,Tangent,4.0,4.0,-0.5,0.5,0.0
+Distance,MVP Disc Sports,Teleport,14.0,5.0,-1.5,2.5,1.0
+Midrange,MVP Disc Sports,Tensor,4.0,4.0,0.0,2.5,2.5
+Fairway,MVP Disc Sports,Tesla,9.0,5.0,-1.0,2.0,1.0
+Midrange,MVP Disc Sports,Vector,5.0,4.0,0.0,2.0,2.0
+Midrange,MVP Disc Sports,Vertex,4.0,4.0,-2.0,0.5,-1.5
+Fairway,MVP Disc Sports,Volt,8.0,5.0,-0.5,2.0,1.5
+Distance,MVP Disc Sports,Wave,11.0,5.0,-2.0,2.0,0.0
+Distance,Obsidian Discs Oy,Caldera,12.0,5.0,-1.0,2.0,1.0
+Fairway,Obsidian Discs Oy,Cinder,7.0,5.0,0.0,2.0,2.0
+Distance,Obsidian Discs Oy,Rift,11.0,5.0,0.0,3.0,3.0
+Fairway,Obsidian Discs Oy,Shard,7.0,5.0,-1.5,1.0,-0.5
+Putter,Obsidian Discs Oy,Splinter,3.0,2.0,0.0,3.5,3.5
+Midrange,Ozone Discs,Andro 1,6.0,4.0,-1.0,2.0,1.0
+Midrange,Ozone Discs,Andro C,6.0,4.0,0.0,2.0,2.0
+Midrange,Ozone Discs,Andro C (retooled),6.0,4.0,-2.0,1.0,-1.0
+Distance,Ozone Discs,Hyperion,11.0,4.0,0.0,4.0,4.0
+Putter,Prodigy Disc,A1,3.0,3.0,0.0,3.0,3.0
+Midrange,Prodigy Disc,A2,4.0,4.0,0.0,3.0,3.0
+Midrange,Prodigy Disc,A3,4.0,4.0,0.0,3.0,3.0
+Midrange,Prodigy Disc,A4,4.0,4.0,-1.0,2.0,1.0
+Distance,Prodigy Disc,D1,13.0,5.0,0.0,3.0,3.0
+Distance,Prodigy Disc,D2,12.0,6.0,-1.0,3.0,2.0
+Distance,Prodigy Disc,D3,13.0,6.0,-2.0,2.0,0.0
+Distance,Prodigy Disc,D4,12.0,6.0,-3.0,2.0,-1.0
+Distance,Prodigy Disc,D5,12.0,6.0,-3.5,2.0,-1.5
+Distance,Prodigy Disc,D6,12.0,6.0,-4.0,1.0,-3.0
+Fairway,Prodigy Disc,F1,7.0,4.0,0.0,3.0,3.0
+Fairway,Prodigy Disc,F2,7.0,5.0,-1.0,3.0,2.0
+Fairway,Prodigy Disc,F3,7.0,5.0,-1.0,2.0,1.0
+Fairway,Prodigy Disc,F5,7.0,5.0,-2.0,1.0,-1.0
+Fairway,Prodigy Disc,F7,7.0,5.0,-3.0,1.0,-2.0
+Distance,Prodigy Disc,H1,10.0,3.0,0.0,4.0,4.0
+Distance,Prodigy Disc,H1 (retooled H1),11.0,4.0,0.0,3.0,3.0
+Fairway,Prodigy Disc,H2,9.0,5.0,0.0,2.0,2.0
+Distance,Prodigy Disc,H2 V2 (retooled H2),11.0,5.0,0.0,2.5,2.5
+Fairway,Prodigy Disc,H3,9.0,4.0,0.0,2.0,2.0
+Distance,Prodigy Disc,H3 V2 (retooled H3),11.0,5.0,-1.0,2.0,1.0
+Fairway,Prodigy Disc,H4,9.0,5.0,-2.0,1.5,-0.5
+Fairway,Prodigy Disc,H5,9.0,5.0,-3.0,1.0,-2.0
+Midrange,Prodigy Disc,M1,5.0,4.0,0.0,3.0,3.0
+Midrange,Prodigy Disc,M2 (originally the M3),5.0,4.0,0.0,2.0,2.0
+Midrange,Prodigy Disc,M3 (originally the M2),5.0,5.0,-1.0,2.0,1.0
+Midrange,Prodigy Disc,M4,5.0,5.0,-1.0,1.0,0.0
+Midrange,Prodigy Disc,M5,5.0,5.0,-3.0,1.0,-2.0
+Putter,Prodigy Disc,PA1,3.0,3.0,0.0,2.0,2.0
+Putter,Prodigy Disc,PA2,3.0,3.0,0.0,1.0,1.0
+Putter,Prodigy Disc,PA3,3.0,4.0,0.0,1.0,1.0
+Putter,Prodigy Disc,PA4,3.0,3.0,-1.0,1.0,0.0
+Distance,Prodigy Disc,X1,13.0,3.0,0.0,4.0,4.0
+Distance,Prodigy Disc,X2,13.0,4.0,0.0,4.0,4.0
+Distance,Prodigy Disc,X3,12.0,5.0,-1.0,2.0,1.0
+Distance,Prodigy Disc,X4,13.0,5.0,-2.5,2.0,-0.5
+Distance,Prodigy Disc,X5,13.0,5.0,-4.0,1.0,-3.0
+Distance,Prodiscus,FASTi,13.0,4.0,-2.0,2.5,0.5
+Fairway,Prodiscus,FLIPPERi,9.0,3.0,-3.0,0.0,-3.0
+Midrange,Prodiscus,Jokeri,4.0,3.0,0.0,2.0,2.0
+Fairway,Prodiscus,Laseri,7.0,3.0,-3.0,2.0,-1.0
+Distance,Prodiscus,Legenda,13.0,5.0,-1.0,2.0,1.0
+Midrange,Prodiscus,Midari,5.0,4.0,-1.0,2.0,1.0
+Distance,Prodiscus,Razeri,12.0,5.0,0.0,3.0,3.0
+Fairway,Prodiscus,Respecti,8.0,4.0,0.0,2.0,2.0
+Fairway,Prodiscus,Rocket,9.0,4.0,0.0,3.0,3.0
+Distance,Prodiscus,Slaidi,12.0,5.0,0.0,3.0,3.0
+Putter,Prodiscus,Sparta,3.0,3.0,0.0,0.5,0.5
+Midrange,Prodiscus,STARi,5.0,4.0,-2.0,1.0,-1.0
+Distance,Prodiscus,Titan,10.0,4.0,0.0,3.0,3.0
+Midrange,Reptilian Disc Golf,Gila,5.0,4.0,0.0,3.0,3.0
+Putter,Reptilian Disc Golf,Scale,2.0,1.0,0.0,3.0,3.0
+Putter,Reptilian Disc Golf,Serpent,2.0,2.0,0.0,0.0,0.0
+Putter,Reptilian Disc Golf,Stego,3.0,1.0,1.0,4.0,5.0
+Fairway,Reptilian Disc Golf,Tyrant,7.0,3.0,0.0,4.0,4.0
+Distance,Rip Disc Golf,Ballistic,13.0,4.0,-2.0,3.0,1.0
+Putter,Rip Disc Golf,Graboide,2.0,1.0,0.0,3.0,3.0
+Putter,Rip Disc Golf,Relic,2.0,2.0,-2.0,2.0,0.0
+Midrange,RPM Discs/Disc Golf Aotearoa,Arcturus (MR1),4.0,5.0,-0.5,0.5,0.0
+Distance,RPM Discs/Disc Golf Aotearoa,Kahu (DGD2),13.0,5.0,-1.5,3.0,1.5
+Midrange,RPM Discs/Disc Golf Aotearoa,Kea (MR2),5.0,5.0,0.0,3.0,3.0
+Distance,RPM Discs/Disc Golf Aotearoa,"Kiwi (DGD1, former Raptor)",10.0,5.0,-1.5,2.0,0.5
+Putter,RPM Discs/Disc Golf Aotearoa,Ruru (PA2),3.0,3.0,0.0,1.0,1.0
+Putter,RPM Discs/Disc Golf Aotearoa,Tui (PA1),3.0,4.0,-1.0,0.0,-1.0
+Midrange,Salient Discs,Antidote,5.0,5.0,0.0,1.0,1.0
+Distance,Salient Discs,Backdraft,12.0,5.0,-1.0,2.0,1.0
+Putter,Salient Discs,Touch,2.0,3.0,0.0,1.0,1.0
+Fairway,Salient Discs,Vein,8.0,4.0,0.0,2.0,2.0
+Distance,Skyiron,Flagship,11.0,4.0,-3.0,2.0,-1.0
+Putter,Skyquest Discs,Chainzilla,2.0,3.0,-1.0,1.0,0.0
+Distance,Skyquest Discs,L13,10.0,5.0,-3.0,2.0,-1.0
+Distance,Skyquest Discs,L13 (retooled),10.0,5.0,-3.0,2.0,-1.0
+Distance,Skyquest Discs,Medusa,11.0,3.0,-2.0,2.0,0.0
+Distance,Snap Discsports,Helios,10.0,5.0,-2.0,1.0,-1.0
+Distance,Storm Disc Golf,Jet Stream,12.0,5.0,-1.0,3.0,2.0
+Putter,Storm Disc Golf,The Crater,3.0,2.0,0.0,3.0,3.0
+Fairway,Streamline Discs,Drift,7.0,5.0,-2.0,1.0,-1.0
+Putter,Streamline Discs,Pilot,2.0,5.0,-1.0,1.0,0.0
+Midrange,Streamline Discs,Runway,5.0,4.0,0.0,3.5,3.5
+Distance,Streamline Discs,Trace,11.0,5.0,-1.0,2.0,1.0
+Fairway,TOBU Discs,Charge,9.0,4.0,-1.0,2.0,1.0
+Fairway,TOBU Discs,Power Roller (renamed from Kyng Roller),8.0,4.0,-3.0,1.0,-2.0
+Putter,UB Disc Golf - Hand Candy,Lex,2.0,3.0,0.0,1.0,1.0
+Distance,UB Disc Golf - Hand Candy,Monstrum,11.0,5.0,0.0,3.0,3.0
+Distance,UB Disc Golf - Hand Candy,Procul,12.0,4.0,-3.0,2.0,-1.0
+Fairway,Vibram Disc Golf,Arch,8.0,5.0,0.0,2.0,2.0
+Fairway,Vibram Disc Golf,Ascent,8.0,4.0,0.0,3.0,3.0
+Midrange,Vibram Disc Golf,Crag,4.0,4.0,0.0,3.5,3.5
+Distance,Vibram Disc Golf,Four20,13.0,4.0,0.0,4.0,4.0
+Midrange,Vibram Disc Golf,Ibex,5.0,4.0,-1.0,1.0,0.0
+Distance,Vibram Disc Golf,Lace,14.0,6.0,-1.5,1.0,-0.5
+Midrange,Vibram Disc Golf,Launch,5.0,5.0,-1.0,2.0,1.0
+Fairway,Vibram Disc Golf,Notch,7.0,3.0,0.0,4.0,4.0
+Distance,Vibram Disc Golf,O-Lace,13.0,5.0,-1.0,3.0,2.0
+Midrange,Vibram Disc Golf,Obex,5.0,4.0,-0.5,2.5,2.0
+Fairway,Vibram Disc Golf,Onyx,8.0,6.0,-3.0,1.0,-2.0
+Putter,Vibram Disc Golf,Ridge,2.0,3.0,0.0,1.0,1.0
+Distance,Vibram Disc Golf,Solace,13.0,4.0,0.0,4.0,4.0
+Putter,Vibram Disc Golf,Sole,2.0,3.0,0.0,2.0,2.0
+Putter,Vibram Disc Golf,Summit,2.0,3.0,-1.0,0.0,-1.0
+Fairway,Vibram Disc Golf,Trak,7.0,4.0,-1.0,2.0,1.0
+Distance,Vibram Disc Golf,unLace,14.0,6.0,-5.0,1.0,-4.0
+Putter,Vibram Disc Golf,V.P.,2.0,3.0,0.0,2.0,2.0
+Fairway,Vibram Disc Golf,Valley,7.0,5.0,-1.0,1.0,0.0
+Fairway,Vibram Disc Golf,Vamp,7.0,5.0,-2.0,1.0,-1.0
+Midrange,Viking Discs (IP-Agency Finland Oy),Axe,4.0,3.0,0.0,1.0,1.0
+Fairway,Viking Discs (IP-Agency Finland Oy),Barbarian,7.0,5.0,0.0,2.0,2.0
+Distance,Viking Discs (IP-Agency Finland Oy),Berserker,10.0,5.0,-3.5,1.5,-2.0
+Fairway,Viking Discs (IP-Agency Finland Oy),Cosmos,7.0,5.0,-0.5,1.0,0.5
+Putter,Viking Discs (IP-Agency Finland Oy),Knife,3.0,3.0,0.0,2.0,2.0
+Midrange,Viking Discs (IP-Agency Finland Oy),Loki,4.0,2.0,0.0,2.0,2.0
+Midrange,Viking Discs (IP-Agency Finland Oy),Nordic Warrior,4.0,4.0,0.0,2.0,2.0
+Distance,Viking Discs (IP-Agency Finland Oy),Ragnarok,11.0,5.0,-1.0,2.0,1.0
+Putter,Viking Discs (IP-Agency Finland Oy),Rune,2.0,4.0,0.0,0.0,0.0
+Distance,Viking Discs (IP-Agency Finland Oy),Thunder God Thor,14.0,5.0,0.0,2.0,2.0
+Distance,Viking Discs (IP-Agency Finland Oy),Valhalla,12.0,5.0,0.0,2.0,2.0
+Fairway,Westside Golf Discs,Ahti,9.0,3.0,0.0,4.0,4.0
+Midrange,Westside Golf Discs,Anvil,4.0,2.0,0.0,4.0,4.0
+Midrange,Westside Golf Discs,Bard (Laulaja1),5.0,4.0,0.0,3.0,3.0
+Distance,Westside Golf Discs,Boatman (Tuonelan Lautturi1),11.0,5.0,0.0,2.0,2.0
+Distance,Westside Golf Discs,Boatman VIP Air (VIP Air Tuonelan Lautturi1),10.0,5.0,0.0,2.0,2.0
+Distance,Westside Golf Discs,Catapult (Katapultt1),14.0,5.0,-0.5,3.0,2.5
+Putter,Westside Golf Discs,Crown (Kruunu1),3.0,4.0,0.0,1.0,1.0
+Distance,Westside Golf Discs,Destiny (Kohtalo1),14.0,6.0,-2.0,3.0,1.0
+Distance,Westside Golf Discs,Fortress (Linnoitus1),10.0,4.0,0.0,3.0,3.0
+Distance,Westside Golf Discs,Giant (Vipunen1),13.0,5.0,0.0,3.5,3.5
+Distance,Westside Golf Discs,Giant VIP Air (VIP Air Vipunen1),13.0,4.0,0.0,3.5,3.5
+Midrange,Westside Golf Discs,Harp (Kannel1),4.0,3.0,0.0,2.0,2.0
+Fairway,Westside Golf Discs,Hatchet (Sotakipves1),9.0,6.0,-2.0,1.5,-0.5
+Distance,Westside Golf Discs,King (Pohjolan Isäntä1),14.0,5.0,-2.0,3.0,1.0
+Distance,Westside Golf Discs,King VIP Air (VIP Air Pohjolan Isäntä1),14.0,5.0,-1.5,3.0,1.5
+Fairway,Westside Golf Discs,Longbowman (Jousimies1),9.0,4.0,0.0,3.0,3.0
+Putter,Westside Golf Discs,Maiden,3.0,3.0,-1.0,1.0,0.0
+Distance,Westside Golf Discs,Northman (Pohjan Poika1),10.0,5.0,-1.0,2.0,1.0
+Distance,Westside Golf Discs,Northman VIP Air (VIP Air Pohjan Poika1),10.0,5.0,-1.0,2.0,1.0
+Midrange,Westside Golf Discs,Pine (Hornan Honka1),5.0,4.0,0.0,2.0,2.0
+Distance,Westside Golf Discs,Queen (Pohjolan Emäntä),14.0,5.0,-3.0,2.0,-1.0
+Distance,Westside Golf Discs,Sampo,10.0,5.0,-0.5,2.0,1.5
+Fairway,Westside Golf Discs,Seer (Ennustaja),7.0,5.0,-1.5,1.5,0.0
+Putter,Westside Golf Discs,Shield (Kilpi1),3.0,3.0,0.0,1.0,1.0
+Midrange,Westside Golf Discs,Sling (Linko1),4.0,5.0,-0.5,1.0,0.5
+Distance,Westside Golf Discs,Sorcerer (Tietäjä1),13.0,6.0,-1.0,2.5,1.5
+Fairway,Westside Golf Discs,Stag (Hiiden Hirvi1),8.0,6.0,-1.0,2.0,1.0
+Fairway,Westside Golf Discs,Stag VIP Air (VIP Air Hiiden Hirvi1),8.0,6.0,-1.0,2.0,1.0
+Putter,Westside Golf Discs,"Swan (retooled, Tuonelan Joutsen1)",3.0,3.0,-1.0,0.0,-1.0
+Putter,Westside Golf Discs,Swan (Tuonelan Joutsen1),3.0,3.0,-1.0,0.0,-1.0
+Putter,Westside Golf Discs,Swan Reborn (Tuonelan Joutsen1),3.0,3.0,-2.5,2.0,-0.5
+Distance,Westside Golf Discs,Sword (Kalevan Miekka1),12.0,5.0,-1.0,2.0,1.0
+Distance,Westside Golf Discs,Sword VIP Air (VIP Air Kalevan Miekka1),12.0,5.0,-0.5,2.0,1.5
+Midrange,Westside Golf Discs,Tursas (Tursas1),5.0,5.0,-2.5,1.0,-1.5
+Midrange,Westside Golf Discs,Tursas VIP Air (VIP Air Tursas1),5.0,5.0,-2.0,1.0,-1.0
+Fairway,Westside Golf Discs,Underworld (Manala1),7.0,6.0,-3.0,1.0,-2.0
+Fairway,Westside Golf Discs,Underworld VIP Air (VIP Air Manala1),7.0,6.0,-3.0,1.0,-2.0
+Distance,Westside Golf Discs,War Horse,13.0,4.0,0.0,4.0,4.0
+Midrange,Westside Golf Discs,Warship (Pursi1),6.0,5.0,0.0,1.0,1.0
+Midrange,Westside Golf Discs,Warship VIP Air (VIP Air Pursi1),5.0,6.0,0.0,1.0,1.0
+Distance,Westside Golf Discs,World (Maailma1),14.0,4.0,0.0,3.0,3.0
+Putter,Yikun Sports,Claws,1.0,2.0,0.0,0.0,0.0
+Midrange,Yikun Sports,"Crossbow (Nu, 连弩)",4.0,2.0,0.5,4.0,4.5
+Distance,Yikun Sports,Da'e,13.0,5.0,0.0,2.0,2.0
+Fairway,Yikun Sports,Gou,8.0,5.0,-4.0,1.0,-3.0
+Putter,Yikun Sports,Gui,2.0,3.0,0.0,2.0,2.0
+Putter,Yikun Sports,"Hammer (Chui, 战锤)",2.0,3.0,0.0,3.0,3.0
+Fairway,Yikun Sports,Hu,9.0,5.0,-2.0,2.0,0.0
+Midrange,Yikun Sports,Jiao,6.0,5.0,-2.0,1.5,-0.5
+Distance,Yikun Sports,Jun,11.0,5.0,-1.0,2.0,1.0
+Midrange,Yikun Sports,Kui,5.0,5.0,0.0,2.5,2.5
+Distance,Yikun Sports,Lu,14.0,5.0,-1.0,3.0,2.0
+Distance,Yikun Sports,Twin Swords,12.0,5.0,-0.5,2.0,1.5
+Midrange,Yikun Sports,View,6.0,4.0,-1.0,2.0,1.0
+Distance,Yikun Sports,Wei,10.0,5.0,-2.5,2.0,-0.5
+Putter,Yikun Sports,Wings,3.0,3.0,0.0,2.0,2.0
+Midrange,Yikun Sports,Yao,4.0,4.0,0.0,2.0,2.0
