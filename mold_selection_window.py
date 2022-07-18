@@ -2,67 +2,40 @@ import DiscGO as dg
 import PySimpleGUI as sg
 import pandas as pd
 import mold_comparison_matrix as mcm
-
-# conditions = {'type': '',
-#               'brand': '',
-#               'mold': '',
-#               'speed': '',
-#               'stability': '',
-#               'plastic': '',
-#               'weight': ''}
+import DiscGOgui as dgg
 
 
-def get_data_frame():
-    sql = '''
-         SELECT 
-            inventory.mold,
-            inventory.brand,
-            inventory.speed,
-            inventory.glide,
-            inventory.turn,
-            inventory.fade,
-            (inventory.turn + inventory.fade) as stability,
-            inventory.plastic,
-            inventory.weight,
-            inventory.color,
-            inventory.notes,
-            disc.type,
-            inventory.id
-        FROM 
-            INVENTORY
-        JOIN
-            disc
-            on
-            disc.mold like inventory.mold
-        ORDER BY
-            brand, inventory.mold
-        '''
-    df = pd.read_sql_query(sql, dg.db_connect())
+def get_csv_data_frame():
+    df = pd.read_csv('./mold_master_list.csv')
+    # print(df.head())
     return df
 
 
 def update_tables(fdf, conditions, window):
-    print(f'UPDATE  TABLES: {conditions}')
     for k, v in conditions.items():
-        # if k in (""):
-        #     break
+        if k in ("glide", "turn", "fade"):
+            break
         if k in ("type", "mold"):
             pivot = fdf.pivot_table(index=k, values="brand", aggfunc="count", margins=True).to_dict()['brand'].items()
         else:
             pivot = fdf.pivot_table(index=k, values="mold", aggfunc="count", margins=True).to_dict()['mold'].items()
+        # update table row data
+        window[f'-tbl_{k}-'].update(values=pivot)
+        # update frame titles
+        window[f'-frm_{k}-'].update(conditions[k])
 
         # clear string so it is not displayed above column
         if v in ("", "All", "ALL"):
             v = ''
-
+        # update column header
         window[f'-tbl_{k}-'].update(values=pivot)
-
+        # update frame title
         window[f'-frm_{k}-'].update(v)
 
 
 def get_disc_count_by_filter(_filter):
     print(f'filter: {_filter}')
-    df = get_data_frame()
+    df = get_csv_data_frame()
     print(f'CSV DATA: {df}')
 
     if _filter == 'mold':
@@ -102,15 +75,15 @@ def get_col1():
     return sg.Column([get_frame_by_filter('type'),
                       [sg.Button('RESET FILTERS',
                                  key='btn-reset',
-                                 disabled_button_color=('white', '#64778D'),
+                                 disabled_button_color=('white', 'gray'),
                                  disabled=True)],
-                      [sg.Button('COMPARE DISCS',
+                      [sg.Button('COMPARE MOLDS',
                                  key='btn-compare',
-                                 disabled_button_color=('white', '#64778D'),
+                                 disabled_button_color=('white', 'gray'),
                                  disabled=True)],
-                      [sg.Button('VIEW DISC',
+                      [sg.Button('ADD MOLD',
                                  key='btn-add',
-                                 disabled_button_color=('white', '#64778D'),
+                                 disabled_button_color=('white', 'gray'),
                                  disabled=True)]
                       ])
 
@@ -142,7 +115,7 @@ def get_layout():
 
 def show():
     layout = get_layout()
-    window = sg.Window('DISC COLLECTION', layout)
+    window = sg.Window('MOLD SELECTION', layout)
     # ------ Event Loop ------
     conditions = {'type': '',
                   'brand': '',
@@ -151,11 +124,11 @@ def show():
                   'stability': ''}
 
     while True:
-        # TYPE = '',
-        # BRAND = '',
-        # MOLD = '',
-        # SPEED = '',
-        # STABILITY = ''
+        TYPE = '',
+        BRAND = '',
+        MOLD = '',
+        SPEED = '',
+        STABILITY = ''
 
         enable_reset_button = False
 
@@ -231,10 +204,22 @@ def show():
                           'speed': '',
                           'stability': ''}
 
-        df = get_data_frame()
+        # # WHY DOESN'T THIS WORK?  need to fix, so it's using a consistent data source
+        # df = dg.eat_pickle('mold_list.pkl')
         fdf = dg.get_filtered_dataframe(df, conditions)
 
+        print(f'FILTERED DATA FRAME: {fdf}')
+
         update_tables(fdf, conditions, window)
+
+        if event == 'btn-compare':
+            # instead of sending df to MCM as variable:
+            # to_pickle() here
+            # read_pickle() from mold comparison matrix
+            fdf.to_pickle('fdf.pkl')
+
+            # show mold comparison matrix
+            dgg.run_window('mold_comparison_matrix')
 
         # turn buttons on/off as needed
         for k, v in conditions.items():
@@ -254,16 +239,6 @@ def show():
         else:
             window['btn-add'].update(disabled=True)
 
-        if event == 'btn-compare':
-            # instead of sending df to MCM as variable:
-            # to_pickle() here
-            # read_pickle() from mold comparison matrix
-            fdf.to_pickle('fdf.pkl')
-
-            # show mold comparison matrix
-            mcm.show(mcm.get_layout())
-
 
 if __name__ == '__main__':
     show()
-    # get_csv_data_frame()

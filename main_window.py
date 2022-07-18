@@ -3,11 +3,11 @@ import PySimpleGUI as sg
 import DiscGOgui as dgg
 
 import disc_add_edit_window
-import mold_selector_window as msw
+import mold_selection_window as msw
 
 
-def get_layout():
-    _values = dg.get_disc_inventory()
+def get_layout(disc_list):
+    _values = disc_list
 
     _headings = ['MOLD', 'MANUFACTURER', 'SPEED', 'GLIDE', 'TURN', 'FADE', 'PLASTIC', 'WEIGHT', 'COLOR', 'NOTES']
 
@@ -34,11 +34,10 @@ def get_layout():
     return _layout
 
 
-def show(_layout):
-    # restart = True
-    disc_list = dg.get_disc_inventory()
-
-    window = sg.Window('DiscGO - Disc Golf Data And Number Crunching Experiment', _layout)
+def show():
+    disc_list = dg.eat_pickle('mold_list.pkl').values.tolist()
+    layout = get_layout(disc_list)
+    window = sg.Window('DiscGO - Disc Golf Data And Number Crunching Experiment', layout)
 
     while True:
         event, values = window.read()
@@ -55,33 +54,26 @@ def show(_layout):
                 # print(f'row: {row}')
 
                 disc = disc_list[row]
+                print(f'DISC DEETS: {disc}')
 
-                # mold = disc[0]
-                # brand = disc[1]
-                # speed = disc[2]
-                # glide = disc[3]
-                # turn = disc[4]
-                # fade = disc[5]
-                disc_id = disc[10]
-
+                mold = disc[2]
+                ### HERE IS WHERE WE NEED TO WORK:
+                #       make new add_edit form (or two forms, DSW & MCM
+                #       make it work with mold (or mold.mold) vs. disc_id
+                #       look up info from SQL DB, based on mold.mold & populate form
                 disc_add_edit_window.show(disc_add_edit_window.get_edit_disc_layout(disc_id))
                 # refresh table rows after saving disc / closing edit window
                 print(f'DISC LIST: {dg.get_disc_inventory()}')
                 window['-tbl_inv-'].update(values=dg.get_disc_inventory())
 
         elif event == 'ADD DISC':
-            msw.show(msw.get_layout())
-            # dgg.show_mold_database()
+            dgg.run_window('mold_selection_window')
 
         elif event == 'DISC COLLECTION DATA':
-            dgg.show_collection_data()
-
-
-def main_loop():
-    print('RUNNING MAIN LOOP')
-    show(get_layout())
+            dgg.run_window('disc_statistics_window')
 
 
 if __name__ == '__main__':
     dg.create_db()
-    main_loop()
+    disc_list = dg.get_disc_inventory()
+    show()
