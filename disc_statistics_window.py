@@ -1,6 +1,7 @@
 import DiscGO as dg
 import PySimpleGUI as sg
 import pandas as pd
+import mold_comparison_matrix as mcm
 
 # conditions = {'type': '',
 #               'brand': '',
@@ -40,71 +41,30 @@ def get_data_frame():
     return df
 
 
-def get_filtered_dataframe(TYPE, BRAND, MOLD, SPEED, STABILITY, WEIGHT):
-    # start with full data frame, then apply filters
-    df = get_data_frame()
-    print(df)
+def update_tables(fdf, conditions, window):
+    print(f'UPDATE  TABLES: {conditions}')
+    for k, v in conditions.items():
+        # if k in (""):
+        #     break
+        if k in ("type", "mold"):
+            pivot = fdf.pivot_table(index=k, values="brand", aggfunc="count", margins=True).to_dict()['brand'].items()
+        else:
+            pivot = fdf.pivot_table(index=k, values="mold", aggfunc="count", margins=True).to_dict()['mold'].items()
 
-    if TYPE != 'All':
-        print(f'FILTER TYPE: {TYPE}')
-        df = df[df.type == TYPE]  # here's where the magic happens?
+        # clear string so it is not displayed above column
+        if v in ("", "All", "ALL"):
+            v = ''
 
-    if MOLD != 'All':
-        print(f'FILTER MOLD: {MOLD}')
-        df = df[df.mold == MOLD]  # here's where the magic happens?
+        window[f'-tbl_{k}-'].update(values=pivot)
 
-    if SPEED != 'All':
-        print(f'FILTER SPEED: {SPEED}')
-        df = df[df.speed == SPEED]  # here's where the magic happens?
-
-    if BRAND != 'All':
-        print(f'FILTER BRAND: {BRAND}')
-        df = df[df.brand == BRAND]  # here's where the magic happens?
-
-    if STABILITY != 'All':
-        print(f'FILTER STAB: {STABILITY}')
-        df = df[df.stability == STABILITY]  # here's where the magic happens?
-
-    if WEIGHT != 'All':
-        print(f'FILTER WEIGHT: {WEIGHT}')
-        df = df[df.weight == WEIGHT]  # here's where the magic happens?
-
-    print(f'FILTERED DataFrame: {df}')
-
-    return df
-
-
-def update_tables(TYPE, BRAND, MOLD, SPEED, STABILITY, WEIGHT, window):
-    print(f'type: {TYPE}, brand: {BRAND}, mold: {MOLD}, speed: {SPEED}, stability: {STABILITY}, weight: {WEIGHT}')
-
-    fdf = get_filtered_dataframe(TYPE, BRAND, MOLD, SPEED, STABILITY, WEIGHT)
-
-    type_data = fdf.pivot_table(index="type", values="brand", aggfunc="count", margins=True).to_dict()['brand'].items()
-    mold_data = fdf.pivot_table(index="mold", values="brand", aggfunc="count", margins=True).to_dict()['brand'].items()
-    brand_data = fdf.pivot_table(index="brand", values="mold", aggfunc="count", margins=True).to_dict()["mold"].items()
-    speed_data = fdf.pivot_table(index="speed", values="mold", aggfunc="count", margins=True).to_dict()["mold"].items()
-    stability_data = fdf.pivot_table(index="stability", values="mold", aggfunc="count", margins=True).to_dict()["mold"].items()
-    weight_data = fdf.pivot_table(index="weight", values="mold", aggfunc="count", margins=True).to_dict()["mold"].items()
-
-    window['-tbl_type-'].update(values=type_data)
-    window['-tbl_mold-'].update(values=mold_data)
-    window["-tbl_brand-"].update(values=brand_data)
-    window["-tbl_speed-"].update(values=speed_data)
-    window["-tbl_stability-"].update(values=stability_data)
-    window["-tbl_weight-"].update(values=weight_data)
-
-    window['-frm_type-'].update(TYPE)
-    window['-frm_mold-'].update(MOLD)
-    window["-frm_brand-"].update(BRAND)
-    window["-frm_speed-"].update(SPEED)
-    window["-frm_stability-"].update(STABILITY)
-    window["-frm_weight-"].update(WEIGHT)
-    ### end update_tables()
+        window[f'-frm_{k}-'].update(v)
 
 
 def get_disc_count_by_filter(_filter):
     print(f'filter: {_filter}')
     df = get_data_frame()
+    print(f'CSV DATA: {df}')
+
     if _filter == 'mold':
         pivot = df.pivot_table(index="mold", values="brand", aggfunc="count", margins=True)
         rows = pivot.to_dict()['brand'].items()
@@ -139,7 +99,20 @@ def get_frame_by_filter(_filter):
 
 
 def get_col1():
-    return sg.Column([get_frame_by_filter('type')])
+    return sg.Column([get_frame_by_filter('type'),
+                      [sg.Button('RESET FILTERS',
+                                 key='btn-reset',
+                                 disabled_button_color=('white', '#64778D'),
+                                 disabled=True)],
+                      [sg.Button('COMPARE DISCS',
+                                 key='btn-compare',
+                                 disabled_button_color=('white', '#64778D'),
+                                 disabled=True)],
+                      [sg.Button('VIEW DISC',
+                                 key='btn-add',
+                                 disabled_button_color=('white', '#64778D'),
+                                 disabled=True)]
+                      ])
 
 
 def get_col2():
@@ -163,22 +136,28 @@ def get_col6():
 
 
 def get_layout():
-    layout = [sg.vtop([get_col1(), get_col2(), get_col3(), get_col4(), get_col5(), get_col6()])
-    ]
+    layout = [sg.vtop([get_col1(), get_col2(), get_col3(), get_col4(), get_col5()])]
     return layout
 
 
 def show(layout):
-    window = sg.Window('DISC COLLECTION STATISTICS', layout)
+    window = sg.Window('DISC COLLECTION', layout)
     # ------ Event Loop ------
-    TYPE = 'All'
-    BRAND = 'All'
-    MOLD = 'All'
-    SPEED = 'All'
-    STABILITY = 'All'
-    WEIGHT = 'All'
+    conditions = {'type': '',
+                  'brand': '',
+                  'mold': '',
+                  'speed': '',
+                  'stability': ''}
 
     while True:
+        # TYPE = '',
+        # BRAND = '',
+        # MOLD = '',
+        # SPEED = '',
+        # STABILITY = ''
+
+        enable_reset_button = False
+
         event, values = window.read()
         print(f'event: {event}')
         print('')
@@ -188,6 +167,7 @@ def show(layout):
             print(f'CLOSED WINDOW')
             window.close()
             break
+
         # to filter: click on a row in any table
         #   onclick(): 'tighten' dataframe and re-run pivot tables to regenerate data in all other tables
         # if event == clicked on 'TYPE' row 0 (first row in table)
@@ -203,8 +183,9 @@ def show(layout):
                 df = pd.DataFrame(table_data)
                 TYPE = df.iloc[row].tolist()[0]
                 # print(f'TYPE: {TYPE}')
+                conditions.update({'type': TYPE})
 
-        if event == '-tbl_brand-':
+        elif event == '-tbl_brand-':
             if values['-tbl_brand-']:
                 row = values["-tbl_brand-"][0]
                 # print(f'ROW: {row}')
@@ -212,8 +193,9 @@ def show(layout):
                 df = pd.DataFrame(table_data)
                 BRAND = df.iloc[row].tolist()[0]
                 # print(f'BRAND: {BRAND}')
+                conditions.update({'brand': BRAND})
 
-        if event == '-tbl_mold-':
+        elif event == '-tbl_mold-':
             if values['-tbl_mold-']:
                 row = values["-tbl_mold-"][0]
                 # print(f'ROW: {row}')
@@ -221,25 +203,66 @@ def show(layout):
                 df = pd.DataFrame(table_data)
                 MOLD = df.iloc[row].tolist()[0]
                 # print(f'MOLD: {MOLD}')
+                conditions.update({'mold': MOLD})
 
-        if event == '-tbl_speed-':
+        elif event == '-tbl_speed-':
             if values['-tbl_speed-']:
                 row = values["-tbl_speed-"][0]
                 # print(f'ROW: {row}')
                 table_data = window["-tbl_speed-"].get()
                 df = pd.DataFrame(table_data)
                 SPEED = df.iloc[row].tolist()[0]
+                conditions.update({'speed': SPEED})
 
-        if event == '-tbl_stability-':
+        elif event == '-tbl_stability-':
             if values['-tbl_stability-']:
                 row = values["-tbl_stability-"][0]
                 # print(f'ROW: {row}')
                 table_data = window["-tbl_stability-"].get()
                 df = pd.DataFrame(table_data)
                 STABILITY = df.iloc[row].tolist()[0]
+                conditions.update({'stability': STABILITY})
 
-        update_tables(TYPE, BRAND, MOLD, SPEED, STABILITY, WEIGHT, window)
+        elif event == 'btn-reset':
+            conditions = {'type': '',
+                          'brand': '',
+                          'mold': '',
+                          'speed': '',
+                          'stability': ''}
+
+        df = get_data_frame()
+        fdf = dg.get_filtered_dataframe(df, conditions)
+
+        update_tables(fdf, conditions, window)
+
+        # turn buttons on/off as needed
+        for k, v in conditions.items():
+            if v not in ('', 'All'):
+                enable_reset_button = True
+
+        if enable_reset_button:
+            window['btn-reset'].update(disabled=False)
+            window['btn-compare'].update(disabled=False)
+        else:
+            window['btn-reset'].update(disabled=True)
+            window['btn-compare'].update(disabled=True)
+        # if only one mold selected, enable add button, disable compare button
+        if fdf.shape[0] == 1:
+            window['btn-add'].update(disabled=False)
+            window['btn-compare'].update(disabled=True)
+        else:
+            window['btn-add'].update(disabled=True)
+
+        if event == 'btn-compare':
+            # instead of sending df to MCM as variable:
+            # to_pickle() here
+            # read_pickle() from mold comparison matrix
+            fdf.to_pickle('fdf.pkl')
+
+            # show mold comparison matrix
+            mcm.show(mcm.get_layout())
 
 
 if __name__ == '__main__':
     show(get_layout())
+    # get_csv_data_frame()

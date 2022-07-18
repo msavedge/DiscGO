@@ -5,6 +5,20 @@ import PySimpleGUI as sg
 import pickle
 
 
+conditions = {'type': '',
+              'brand': '',
+              'mold': '',
+              'speed': '',
+              'glide': '',
+              'turn': '',
+              'fade': '',
+              'stability': ''}
+dg.make_pickle(conditions, 'mcm_cond.pkl')
+
+gray = '#FFFFFF'
+red = '#CC3333'
+
+
 def get_csv_data_frame():
     return pd.read_csv('./mold_master_list.csv')
 
@@ -13,16 +27,12 @@ def get_fdf():  # filtered data frame - this is the comparison matrix
     return pd.read_pickle('fdf.pkl')
 
 
-gray = '#FFFFFF'
-red = '#CC3333'
-
-
 def get_layout():
-    _df = pd.read_pickle('fdf.pkl')
+    _df = get_fdf()
     _data = _df.values.tolist()
     print(f'data: {_data}')
     # pad header text to set min column widths for table - keeps filter flags from shifting as much
-    header_list = [' TYPE ', '     BRAND     ', '    MOLD    ', 'SPEED', 'GLIDE', 'TURN', 'FADE', 'STABILITY']
+    header_list = [' TYPE ', '     BRAND     ', '      MOLD      ', 'SPEED', 'GLIDE', 'TURN', 'FADE', 'STABILITY']
     print(f'header_list: {header_list}')
 
     row_count = _df.shape[0]
@@ -74,76 +84,35 @@ def get_layout():
                          header_text_color=red,
                          key="-tbl_main-",
                          pad=((20, 10), (10, 10)))],
-               [sg.Button('RESET', pad=((20, 450), (5, 10))), sg.Button('ADD DISC', pad=(20, 5))]]
+               [sg.Button('RESET',
+                          pad=((20, 450), (5, 10)),
+                          disabled_button_color=('white', 'gray'),
+                          disabled=True,
+                          key='btn-reset'),
+                sg.Button('DETAILS',
+                          pad=(20, 5),
+                          disabled=True,
+                          disabled_button_color=('white', 'gray'),
+                          key='btn-add')]]
     return _layout
 
 
-conditions = {'type': '',
-              'brand': '',
-              'mold': '',
-              'speed': '',
-              'glide': '',
-              'turn': '',
-              'fade': '',
-              'stability': ''}
-
-file = open('mcm_cond.pkl', 'wb')
-pickle.dump(conditions, file)
-file.close()
-
-# file = open('mcm_cond.pkl', 'rb')
-# conditions = pickle.load(file)
-# file.close()
-
-print(f'UNPICKLED CONDITIONS: {conditions}')
+def highlight_header(window, hdr):
+    # added condition
+    window[f'{hdr}-reset'].update('      ')
+    window[f'{hdr}-reset'].update(text_color=red)
 
 
-def get_filtered_dataframe(conditions):
-        # reset dataframe, then filter
-        df = get_fdf()
-        # convert these to list comprehensions?
-        print(f'CONDITIONS: {conditions}')
-        if conditions["type"] != '':
-            print('FILTERING ON TYPE')
-            df = df[df["type"] == conditions["type"]]
+def lowlight_header(window, hdr):
+    # removed condition
+    window[f'{hdr}-reset'].update('ALL')
+    window[f'{hdr}-reset'].update(text_color=gray)
 
-        if conditions["brand"] != '':
-            print('FILTERING ON BRAND')
-            df = df[df["brand"] == conditions["brand"]]
-
-        if conditions["mold"] != '':
-            print('FILTERING ON MOLD')
-            df = df[df["mold"] == conditions["mold"]]
-
-        if conditions["speed"] != '':
-            print('FILTERING ON SPEED')
-            df = df[df["speed"] == conditions["speed"]]
-
-        if conditions["glide"] != '':
-            print('FILTERING ON GLIDE')
-            df = df[df["glide"] == conditions["glide"]]
-
-        if conditions["turn"] != '':
-            print('FILTERING ON TURN')
-            df = df[df["turn"] == conditions["turn"]]
-
-        if conditions["fade"] != '':
-            print('FILTERING ON FADE')
-            df = df[df["fade"] == conditions["fade"]]
-
-        if conditions["stability"] != '':
-            print('FILTERING ON STABILITY')
-            df = df[df["stability"] == conditions["stability"]]
-
-        print(f'FILTERED DF: {df}')
-        return df
 
 def show(layout):
     window = sg.Window("MOLD COMPARISON MATRIX", layout)
 
-    file = open('mcm_cond.pkl', 'rb')
-    conditions = pickle.load(file)
-    file.close()
+    conditions = dg.eat_pickle('mcm_cond.pkl')
 
     while True:
         event, values = window.read()
@@ -154,7 +123,7 @@ def show(layout):
             window.close()
             break
 
-        if event == 'RESET':
+        if event == 'btn-reset':
             # reset filter conditions
             conditions = {'type': '',
                           'brand': '',
@@ -182,92 +151,91 @@ def show(layout):
                 if row == -1: # header => reset
                     # remove condition
                     conditions.update({'type': ''})
-                    window['type-reset'].update('ALL')
-                    window['type-reset'].update(text_color=gray)
+                    lowlight_header(window, 'type')
                 else:
                     # add condition
                     conditions.update({'type': cell_data})
-                    window['type-reset'].update('      ')
-                    window['type-reset'].update(text_color=red)
+                    highlight_header(window, 'type')
 
             if col == 1: # brand
                 if row == -1: # reset
                     conditions.update({'brand': ''})
-                    window['brand-reset'].update('ALL')
-                    window['brand-reset'].update(text_color=gray)
+                    lowlight_header(window, 'brand')
                 else:
                     conditions.update({'brand': cell_data})
-                    window['brand-reset'].update('      ')
-                    window['brand-reset'].update(text_color=red)
+                    highlight_header(window, 'brand')
 
             if col == 2: # mold
                 if row == -1: # reset
                     conditions.update({'mold': ''})
-                    window['mold-reset'].update('ALL')
-                    window['mold-reset'].update(text_color=gray)
+                    lowlight_header(window, 'mold')
                 else:
                     conditions.update({'mold': cell_data})
-                    window['mold-reset'].update('      ')
-                    window['mold-reset'].update(text_color=red)
+                    highlight_header(window, 'mold')
 
             if col == 3: # speed
                 if row == -1: # reset
                     conditions.update({'speed': ''})
-                    window['speed-reset'].update('ALL')
-                    window['speed-reset'].update(text_color=gray)
+                    lowlight_header(window, 'speed')
                 else:
                     conditions.update({'speed': cell_data})
-                    window['speed-reset'].update('      ')
-                    window['speed-reset'].update(text_color=red)
+                    highlight_header(window, 'speed')
 
             if col == 4:  # glide
                 if row == -1:  # reset
                     conditions.update({'glide': ''})
-                    window['glide-reset'].update('ALL')
-                    window['glide-reset'].update(text_color=gray)
+                    lowlight_header(window, 'glide')
                 else:
                     conditions.update({'glide': cell_data})
-                    window['glide-reset'].update('      ')
-                    window['glide-reset'].update(text_color=red)
+                    highlight_header(window, 'glide')
 
             if col == 5:  # turn
                 if row == -1:  # reset
                     conditions.update({'turn': ''})
-                    window['turn-reset'].update('ALL')
-                    window['turn-reset'].update(text_color=gray)
+                    lowlight_header(window, 'turn')
                 else:
                     conditions.update({'turn': cell_data})
-                    window['turn-reset'].update('      ')
-                    window['turn-reset'].update(text_color=red)
+                    highlight_header(window, 'turn')
 
             if col == 6:  # fade
                 if row == -1:  # reset
                     conditions.update({'fade': ''})
-                    window['fade-reset'].update('ALL')
-                    window['fade-reset'].update(text_color=gray)
+                    lowlight_header(window, 'fade')
                 else:
                     conditions.update({'fade': cell_data})
-                    window['fade-reset'].update('      ')
-                    window['fade-reset'].update(text_color=red)
+                    highlight_header(window, 'fade')
 
             if col == 7:  # stability
                 if row == -1:  # reset
                     conditions.update({'stability': ''})
-                    window['stability-reset'].update('ALL')
-                    window['stability-reset'].update(text_color=gray)
+                    lowlight_header(window, 'stability')
                 else:
                     conditions.update({'stability': cell_data})
-                    window['stability-reset'].update('   ')
-                    window['stability-reset'].update(text_color=red)
+                    highlight_header(window, 'stability')
 
             # save filter conditions:
-            file = open('mcm_cond.pkl', 'wb')
-            pickle.dump(conditions, file)
-            file.close()
+            dg.make_pickle(conditions, 'mcm_cond.pkl')
 
-        fdf = get_filtered_dataframe(conditions)
+        df = get_fdf()
+        fdf = dg.get_filtered_dataframe(df, conditions)
         # update table with (un)filtered data
         window['-tbl_main-'].update(values=fdf.values.tolist())
+
+        # turn buttons on/off as needed:
+        if fdf.shape[0] == 1:
+            window['btn-add'].update(disabled=False)
+        else:
+            window['btn-add'].update(disabled=True)
+
+        enable_reset_button = False
+        for k, v in conditions.items():
+            if v not in ('', 'All'):
+                enable_reset_button = True
+
+        if enable_reset_button:
+            window['btn-reset'].update(disabled=False)
+        else:
+            window['btn-reset'].update(disabled=True)
 
 
 if __name__ == '__main__':

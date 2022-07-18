@@ -1,5 +1,36 @@
 potential database to scrape: https://discgolfdata.com/pages/yadd.html
 
+DB SCHEMA:
+
+    mold
+        name(*)
+        type
+        brand
+        speed
+        glide
+        turn
+        fade
+
+    brand
+        name(*)
+
+    mold2brand
+        mold.name
+        brand.name
+
+    disc
+        id
+        mold.name
+        plastic
+        color
+        weight
+        notes
+
+    inventory
+        disc.id
+        in_bag
+
+#####################################################################################
 
 SELECT
 	inventory.mold,

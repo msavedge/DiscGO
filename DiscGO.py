@@ -1,5 +1,6 @@
 import sqlite3
 import DiscGOdata as dgd
+import pickle
 
 
 def db_connect():
@@ -39,6 +40,30 @@ def db_query_all(sql):
     rows = cursor.fetchall()
     conn.close()
     return rows
+
+
+def make_pickle(obj, file):
+    # pickle object
+    f = open(file, 'wb')
+    pickle.dump(obj, f)
+    f.close()
+
+
+def eat_pickle(file):
+    f = open(file, 'rb')
+    obj = pickle.load(f)
+    f.close()
+    return obj
+
+
+def get_filtered_dataframe(df, conditions):
+    # k is filter, v is condition
+    for key, val in conditions.items():
+        if val not in ('', 'All'):
+            print(key, val)
+            df = df[df[f'{key}'] == val]
+    print("FILTERED DATA BELOW")
+    return df
 
 
 def get_mold_info(mold):
