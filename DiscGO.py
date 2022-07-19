@@ -68,9 +68,35 @@ def db_query_all(sql):
 
 
 def make_dataframe_pickles():
+    # get mold list
     sql = 'SELECT * FROM MOLD'
     df = pd.read_sql(sql, db_connect())
     make_pickle(df, 'mold_list.pkl')
+
+    # get collection list
+    sql = '''
+        SELECT
+            type,
+            brand,
+            collection.mold,
+            speed,
+            glide,
+            turn,
+            fade,
+            stability,
+            weight,
+            plastic,
+            color,
+            notes
+        FROM
+            collection
+        JOIN
+            mold
+            on
+            mold.mold like collection.mold
+        '''
+    df = pd.read_sql(sql, db_connect())
+    make_pickle(df, 'collection.pkl')
 
 
 def make_pickle(obj, file):
@@ -160,6 +186,29 @@ def get_plastics_for_mold(mold):
         '''
     return db_query_all(sql)
 
+
+def add_disc_to_collection(disc):
+    # disc = {'mold': fdf.mold,
+    #         'plastic': values['-plastic-'],
+    #         'weight': values['-weight-'],
+    #         'color': values['-color-'],
+    #         'notes': values['-notes-']}
+    sql = f'''
+        INSERT INTO collection
+            (mold,
+            plastic,
+            weight,
+            color,
+            notes)
+        VALUES
+            ("{disc['mold']}",
+            "{disc['plastic']}",
+            "{disc['weight']}",
+            "{disc['color']}",
+            "{disc['notes']}")
+        '''
+    # print(f'SQL:\n{sql}')
+    db_execute(sql)
 
 def add_disc_to_inventory(disc):
     print(f'adding disc to inventory...')

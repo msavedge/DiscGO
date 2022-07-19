@@ -46,7 +46,7 @@ def get_layout(disc_list):
 
 
 def show():
-    df = dg.eat_pickle('mold_list.pkl')
+    df = dg.eat_pickle('collection.pkl')
     disc_list = df.values.tolist()
 
     layout = get_layout(disc_list)

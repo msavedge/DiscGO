@@ -1,14 +1,10 @@
 import DiscGO as dg
 import PySimpleGUI as sg
 
-import mold_info_window
 
+def get_layout(disc_list):
+    values = disc_list
 
-def get_layout():
-    fdf = dg.eat_pickle('fdf.pkl')
-    print(f'GET_LAYOUT: \n{fdf.values.tolist()}')
-
-    values = fdf.values.tolist()
     headings = [f'{"TYPE" : ^8}',
                 f'{"BRAND" : ^15}',
                 f'{"MOLD" : ^20}',
@@ -17,12 +13,6 @@ def get_layout():
                 f'{"TURN" : ^5}',
                 f'{"FADE" : ^5}']
 
-    color = '#CC3333'
-    plastics = ['DX', 'Star', 'Champion']
-    plastic = 'choose'
-    weight = '175'
-    notes = ''
-
     layout = [[sg.Table(headings=headings,
                         values=values,
                         num_rows=1,
@@ -30,6 +20,7 @@ def get_layout():
                         enable_events=True,
                         enable_click_events=False,
                         justification='left',
+                        hide_vertical_scroll=True,
                         alternating_row_color='#283B5B',
                         header_text_color='#CC3333',
                         row_height=35)],
@@ -38,21 +29,22 @@ def get_layout():
                sg.Text('WEIGHT',
                        pad=((20, 50), (10, 10))),
                sg.Text('COLOR')],
-              [sg.Combo(values=plastics,
-                        default_value=plastic,
-                        size=12,
+              [sg.Input('',
+                        size=14,
                         pad=((5, 27), (0, 10)),
+                        enable_events=True,
                         key='-plastic-'),
-               sg.In(weight,
+               sg.In('',
                      size=4,
                      pad=((5, 65), (0, 10)),
+                     enable_events=True,
                      key='-weight-'),
               sg.ColorChooserButton('SELECT', target='-color-'),
-               sg.In(color, size=8, enable_events=True, key='-color-'),
-               sg.DummyButton('', size=(11, 2), button_color=(color, color), disabled=True, key='-swatch-')],
-              [sg.In(color, visible=False, key='-secret-color-')],
+               sg.In('', size=8, enable_events=True, key='-color-'),
+               sg.DummyButton('', size=(15, 1), button_color=('#64778D', '#64778D'), disabled=True, key='-swatch-')],
+              [sg.In('', visible=False, key='-secret-color-')],
               [sg.Text('NOTES')],
-              [sg.In(notes,
+              [sg.In('',
                      size=30,
                      key='-notes-'),
                sg.Button('ADD DISC',
@@ -65,7 +57,12 @@ def get_layout():
 
 
 def show():
-    layout = get_layout()
+    # fdf should be single row if we got this far
+    fdf = dg.eat_pickle('fdf.pkl')
+
+    disc_list = fdf.values.tolist()
+
+    layout = get_layout(disc_list)
 
     window = sg.Window('ADD DISC', layout)
 
@@ -77,8 +74,14 @@ def show():
             window.close()
             break
 
+        # form validation - require plastic, weight and color to activate 'add' button
+        if len(values['-plastic-']) >= 2 and len(values['-weight-']) == 3 and len(values['-color-']) == 7:
+            window['btn-add'].update(disabled=False)
+        else:
+            window['btn-add'].update(disabled=True)
+
         if event == '-color-':
-            if values['-color-'] != 'None':
+            if values['-color-'] != 'None':  # value returned if user hits cancel button
                 color = values['-color-']
                 window['-swatch-'].update(button_color=(color, color))
                 window['-secret-color-'].update(values['-color-'])
@@ -87,9 +90,18 @@ def show():
                 window['-swatch-'].update(button_color=(color, color))
                 window['-color-'].update(values['-secret-color-'])
 
+        if event == 'btn-add':
+
+            disc = {'mold': fdf['mold'].tolist()[0],
+                    'plastic': values['-plastic-'],
+                    'weight': values['-weight-'],
+                    'color': values['-color-'],
+                    'notes': values['-notes-']}
+
+            dg.add_disc_to_collection(disc)
+#           # popup confirming successful add
+
 
 if __name__ == '__main__':
-    # dg.create_db()
-    # disc_list = dg.get_disc_inventory()
     show()
 
