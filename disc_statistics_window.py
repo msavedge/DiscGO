@@ -62,8 +62,7 @@ def update_tables(fdf, conditions, window):
 
 def get_disc_count_by_filter(_filter):
     print(f'filter: {_filter}')
-    df = get_data_frame()
-    print(f'CSV DATA: {df}')
+    df = dg.eat_pickle('collection.pkl')
 
     if _filter == 'mold':
         pivot = df.pivot_table(index="mold", values="brand", aggfunc="count", margins=True)
@@ -231,7 +230,7 @@ def show():
                           'speed': '',
                           'stability': ''}
 
-        df = get_data_frame()
+        df = dg.eat_pickle('collection.pkl')
         fdf = dg.get_filtered_dataframe(df, conditions)
 
         update_tables(fdf, conditions, window)
@@ -261,7 +260,7 @@ def show():
             fdf.to_pickle('fdf.pkl')
 
             # show mold comparison matrix
-            mcm.show(mcm.get_layout())
+            mcm.show()
 
 
 if __name__ == '__main__':

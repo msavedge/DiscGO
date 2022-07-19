@@ -126,6 +126,27 @@ def show():
             sg.PopupOK('DISC SAVED')
             break
 
+        elif event == 'btn-delete':
+            # first & only element in list:
+            disc = disc_list[0]
+            # pull the mold name out of the disc:
+            mold = disc[2]
+
+            yes_no = sg.popup_yes_no("DO YOU REALLY WANT TO",
+                                     f"DELETE THIS {mold}?",
+                                     '',
+                                     "THIS OPERATION CANNOT",
+                                     "BE UNDONE.",
+                                     "")
+            if yes_no == 'Yes':
+                disc_id = dg.eat_pickle('disc_id.pkl')
+                print(f'deleting disc {disc_id}')
+                dg.remove_disc_from_collection(disc_id)
+                window.close()
+                sg.PopupOK('DISC DELETED')
+                break
+
+
 if __name__ == '__main__':
     show()
 

@@ -257,6 +257,17 @@ def get_disc_from_collection(disc_id):
     return db_query_one(sql)
 
 
+def remove_disc_from_collection(disc_id):
+    sql = f'''
+        DELETE FROM
+            collection
+        WHERE
+            id = {disc_id}
+        '''
+    db_execute(sql)
+    make_dataframe_pickles()
+
+
 def add_disc_to_inventory(disc):
     print(f'adding disc to inventory...')
 #    print(f'''

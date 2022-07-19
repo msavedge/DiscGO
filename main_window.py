@@ -74,12 +74,14 @@ def show():
                 #       make new add_edit form (or two forms like DSW & MCM)
                 #       make it work with mold (or mold.mold) vs. disc_id
                 #       look up info from SQL DB, based on mold.mold & populate form
-
+                # # disc_id saved in pickle file, rather than being passed around
                 dgg.run_window('disc_edit_window')
-                # disc_add_edit_window.show(disc_add_edit_window.get_edit_disc_layout(disc_id))
 
                 # refresh table rows after saving disc / closing edit window
-                # print(f'DISC LIST: {dg.get_disc_inventory()}')
+                df = dg.eat_pickle('collection.pkl')
+                disc_list = df.values.tolist()
+
+                window['-tbl_inv-'].update(values=disc_list)
 
         elif event == 'ADD DISC':
             dgg.run_window('mold_selection_window')
