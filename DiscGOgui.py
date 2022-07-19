@@ -1,5 +1,3 @@
-import PySimpleGUI as sg
-
 # layouts for PySimpleGUI windows
 import disc_statistics_window as dsw
 import main_window as mw

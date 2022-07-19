@@ -25,10 +25,13 @@ def get_layout(disc_list):
                         header_text_color='#CC3333',
                         row_height=35)],
               [sg.Text('PLASTIC',
-                       pad=((5, 50), (10, 10))),
+                       pad=((5, 50), (10, 10)),
+                       background_color='#7a7a7a'),
                sg.Text('WEIGHT',
-                       pad=((20, 50), (10, 10))),
-               sg.Text('COLOR')],
+                       pad=((20, 50), (10, 10)),
+                       background_color='#7a7a7a'),
+               sg.Text('COLOR',
+                       background_color='#7a7a7a')],
               [sg.Input('',
                         size=14,
                         pad=((5, 27), (0, 10)),
@@ -43,7 +46,8 @@ def get_layout(disc_list):
                sg.In('', size=8, enable_events=True, key='-color-'),
                sg.DummyButton('', size=(15, 1), button_color=('#64778D', '#64778D'), disabled=True, key='-swatch-')],
               [sg.In('', visible=False, key='-secret-color-')],
-              [sg.Text('NOTES')],
+              [sg.Text('NOTES',
+                       background_color='#7a7a7a')],
               [sg.In('',
                      size=30,
                      key='-notes-'),
@@ -64,7 +68,7 @@ def show():
 
     layout = get_layout(disc_list)
 
-    window = sg.Window('ADD DISC', layout)
+    window = sg.Window('ADD DISC', layout, background_color='#7a7a7a')
 
     while True:
         event, values = window.read()
@@ -101,7 +105,7 @@ def show():
             dg.add_disc_to_collection(disc)
 #           # popup confirming successful add
             window.close()
-            sg.PopupOK('DISC ADDED')
+            sg.PopupOK('DISC ADDED', background_color='#283B5B')
             break
 
 
