@@ -8,6 +8,7 @@ import main_window as mw
 import mold_selection_window as msw
 import mold_comparison_matrix as mcm
 import disc_add_window as daw
+import disc_edit_window as dew
 
 
 def run_window(window):
@@ -25,6 +26,9 @@ def run_window(window):
 
     if window == 'disc_add_window':
         daw.show()
+
+    if window == 'disc_edit_window':
+        dew.show()
 
 
 def show_inventory_window():

@@ -1,204 +1,131 @@
 import DiscGO as dg
 import PySimpleGUI as sg
 
-import mold_info_window
 
+def get_layout(disc_list):
+    values = disc_list
+    disc = values[0]
 
-def get_add_disc_layout(_mold):
-    print(f'ADD MOLD LAYOUT _mold: {_mold}')
-    dummy_disc_id = 0
-    mold = _mold
+    print(f'GET LAYOUT TABLE VALUES:\n{values}')
 
-    mold_info_layout = mold_info_window.get_layout(mold)
-    disc_detail_layout = get_disc_detail_layout(dummy_disc_id, mold)
+    headings = [f'{"TYPE" : ^8}',
+                f'{"BRAND" : ^15}',
+                f'{"MOLD" : ^20}',
+                f'{"SPEED" : ^5}',
+                f'{"GLIDE" : ^5}',
+                f'{"TURN" : ^5}',
+                f'{"FADE" : ^5}']
 
-    layout = []
-    layout.append(mold_info_layout)
-    layout.append(disc_detail_layout)
-    layout.append(add_button_row())
+    layout = [[sg.Table(headings=headings,
+                        values=values,
+                        num_rows=1,
+                        key='-tbl_inv-',
+                        enable_events=True,
+                        enable_click_events=False,
+                        justification='left',
+                        hide_vertical_scroll=True,
+                        alternating_row_color='#283B5B',
+                        header_text_color='#CC3333',
+                        row_height=35)],
+              [sg.Text('PLASTIC',
+                       pad=((5, 50), (10, 10))),
+               sg.Text('WEIGHT',
+                       pad=((20, 50), (10, 10))),
+               sg.Text('COLOR')],
+              [sg.Input(disc[7],
+                        size=14,
+                        pad=((5, 27), (0, 10)),
+                        enable_events=True,
+                        key='-plastic-'),
+               sg.In(disc[8],
+                     size=4,
+                     pad=((5, 65), (0, 10)),
+                     enable_events=True,
+                     key='-weight-'),
+              sg.ColorChooserButton('SELECT', target='-color-'),
+               sg.In(disc[9], size=8, enable_events=True, key='-color-'),
+               sg.DummyButton('', size=(15, 1), button_color=(disc[9], disc[9]), disabled=True, key='-swatch-')],
+              [sg.In('', visible=False, key='-secret-color-')],
+              [sg.Text('NOTES')],
+              [sg.In(disc[10],
+                     size=30,
+                     key='-notes-'),
+               sg.Button('DELETE DISC',
+                         pad=((80, 120), (10, 10)),
+                         key='btn-delete',
+                         button_color=('#CC3333', 'white')),
+               sg.Button('SAVE',
+                         size=11,
+                         pad=((10, 10), (10, 10)),
+                         key='btn-save',
+                         disabled_button_color=('white', '#64778D'),
+                         disabled=False)]
+              ]
     return layout
 
 
-# edit disc layout composed of mold info window & disc detail layout
-def get_edit_disc_layout(disc_id):
-    disc = dg.get_disc_from_inventory(disc_id)
-    mold = disc[0]
+def show():
+    # fdf should be single row if we got this far
+    disc_id = dg.eat_pickle('disc_id.pkl')
+    # turn into a [list] because it's a single row & sg.Table only reads enumerables
+    disc_list = [dg.get_disc_from_collection(disc_id)]
 
-    mold_info_layout = mold_info_window.get_layout(mold)
-    disc_detail_layout = get_disc_detail_layout(disc_id, mold)
+    layout = get_layout(disc_list)
 
-    layout = []
-    layout.append(mold_info_layout)
-    layout.append(disc_detail_layout)
-    layout.append(edit_button_row())
-    return layout
+    window = sg.Window('EDIT DISC', layout)
 
-
-def get_disc_detail_layout(disc_id, _mold):
-    # set (dummy) disc_id and mold based on conditions:
-    if disc_id == 0:
-        disc = ('mold', 'brand', 0.0, 0.0, 0.0, 0.0, 'select', '', '#000000', '', 0)
-        mold = _mold
-    else:
-        disc = dg.get_disc_from_inventory(disc_id)
-        mold = disc[0]
-
-    print(f'DISC INFO: {disc}')
-
-    brand = disc[1]
-    speed = disc[2]
-    glide = disc[3]
-    turn = disc[4]
-    fade = disc[5]
-    plastic = disc[6]
-    weight = disc[7]
-    color = disc[8]
-    notes = disc[9]
-    disc_id = disc[10]
-
-    plastics = dg.get_plastics_for_mold(mold)
-    print(f'FOUND SOME PLASTIC: {plastics}')
-
-    _layout = [
-        [sg.Text(' '),
-         sg.In(disc_id, visible=False, key='-disc_id-'),
-         sg.In(brand, visible=False, key='-brand-'),
-         sg.In(speed, visible=False, key='-speed-'),
-         sg.In(glide, visible=False, key='-glide-'),
-         sg.In(turn, visible=False, key='-turn-'),
-         sg.In(fade, visible=False, key='-fade-')],
-        [sg.Text('COLOR')],
-        [sg.ColorChooserButton('SELECT', target='-color-'),
-         sg.In(f'{color.upper()}', size=8, enable_events=True, key='-color-'),
-         sg.DummyButton('', size=(11, 1), button_color=(color, color), disabled=True, key='-swatch-')],
-        [sg.In(color, visible=False, key='-secret-color-')],
-        [sg.Text('PLASTIC'),
-         sg.Text(' ', size=8),
-         sg.Text('WEIGHT')],
-        [sg.Combo(values=plastics, default_value=plastic, size=12, key='-plastic-'),
-         sg.Text(' ', size=2),
-         sg.In(weight, size=4, key='-weight-')],
-        [sg.Text('NOTES')],
-        [sg.In(notes, size=40, key='-notes-')],
-        [sg.Text('')],
-    ]
-    return _layout
-
-
-def edit_button_row():
-    _layout = [
-        [sg.Button('SAVE', visible=False),
-         sg.Text(' ', size=2),
-         sg.Button('DELETE DISC', button_color=('red', 'white')),
-         sg.Text(' ', size=2),
-         sg.Button('CLOSE')],
-    ]
-    return _layout
-
-
-def add_button_row():
-    _layout = [
-        [sg.Button('ADD DISC'),
-         sg.Text(' ', size=18),
-         sg.Button('CANCEL')],
-    ]
-    return _layout
-
-
-def show(_layout):
-    window = sg.Window('DISC DETAILS', _layout)
-    # ------ Event Loop ------
     while True:
         event, values = window.read()
-        print(event, values)
-        if event == sg.WIN_CLOSED or event == 'CLOSE' or event == 'CANCEL':
-            print('SAVING DISC STATUS')
-            disc_id = values['-disc_id-']
+        print(f'event: {event}\nvalues: {values}')
 
-            plastic = values['-plastic-'][0]
-            print(f'plastic: {plastic}')
+        if event == sg.WIN_CLOSED:
+            window.close()
+            break
 
+        # form validation - require plastic, weight and color to activate 'add' button
+        if len(values['-plastic-']) >= 2 and len(values['-weight-']) == 3 and len(values['-color-']) > 5:
+            window['btn-save'].update(disabled=False)
+        else:
+            window['btn-save'].update(disabled=True)
+
+        if event == '-color-':
+            if values['-color-'] != 'None':  # value returned if user hits cancel button
+                color = values['-color-']
+                window['-swatch-'].update(button_color=(color, color))
+                window['-secret-color-'].update(values['-color-'])
+            else:
+                color = values['-secret-color-']
+                window['-swatch-'].update(button_color=(color, color))
+                window['-color-'].update(values['-secret-color-'])
+
+        if event == 'btn-save':
+            # first & only element in list:
+            disc = disc_list[0]
+            # pull the mold name out of the disc:
+            mold = disc[2]
+            plastic = values['-plastic-']
             weight = values['-weight-']
             color = values['-color-']
             notes = values['-notes-']
 
-            dg.update_disc_in_inventory(disc_id, plastic, weight, color, notes)
+            disc_id = dg.eat_pickle('disc_id.pkl')
 
-            print(f'CLOSED WINDOW')
+            # print(f'DISC:\n{disc}')
+            # print(f'MOLD:\n{mold}')
+
+            disc = {'mold': mold,
+                    'plastic': plastic,
+                    'weight': weight,
+                    'color': color,
+                    'notes': notes,
+                    'id': disc_id}
+
+            dg.update_disc_in_collection(disc)
+#           # popup confirming successful add
             window.close()
+            sg.PopupOK('DISC SAVED')
             break
-
-        elif event == 'CANCEL':  # user decided to not add disc
-            print('CANCELLED DISC ADD')
-            window.close()
-            break
-
-        if event == '-color-':  # clicked color picker button
-
-            if values['-color-'] == 'None':
-                print('BLACK and WHITE')
-                color = values['-secret-color-']
-                window['-swatch-'].update(button_color=(color, color))
-                window['-color-'].update(values['-secret-color-'])
-            else:
-                print(f'FOUND A COLOR: {values["-color-"]}')
-                color = values['-color-']
-                window['-swatch-'].update(button_color=(color, color))
-                window['-secret-color-'].update(values['-color-'])
-
-        elif event == 'ADD DISC':
-            # mold = disc[0]
-            # brand = disc[1]
-            # speed = disc[2]
-            # glide = disc[3]
-            # turn = disc[4]
-            # fade = disc[5]
-            # plastic = disc[6]
-            # weight = disc[7]
-            # color = disc[8]
-            # notes = disc[9]
-            # disc_id = disc[10]
-
-            print('< EVENT = ADD >')
-
-            disc_definition = {
-                'mold':         values["-mold-"].upper(),
-                'manufacturer': values['-brand-'].upper(),
-                'speed':        values['-speed-'],
-                'glide':        values['-glide-'],
-                'turn':         values['-turn-'],
-                'fade':         values['-fade-'],
-                'plastic':      values['-plastic-'][0],
-                'weight':       values['-weight-'],
-                'color':        values['-color-'],
-                'notes':        values['-notes-']
-            }
-
-            # print(f'MADE UP DISC: {disc}')
-
-            # save disc details in database:
-            print("saving disc info")
-            dg.add_mold_to_inventory(disc_definition)
-            sg.PopupOK(f'{values["-mold-"]} saved')
-            window.close()
-            break
-
-        elif event == 'DELETE DISC':
-            yes_no = sg.popup_yes_no("DO YOU REALLY WANT TO",
-                                     f"DELETE THIS {values['-mold-']}?",
-                                     '',
-                                     "THIS OPERATION CANNOT",
-                                     "BE UNDONE.",
-                                     "")
-            if yes_no == 'Yes':
-                disc_id = values['-disc_id-']
-                print(f'deleting disc {disc_id}')
-                dg.remove_disc_from_inventory(disc_id)
-                # sg.popup(f'the {values["-mold-"].upper()} has been eliminated.')
-                window.close()
-                break
-
 
 if __name__ == '__main__':
-    show(get_add_disc_layout('kaxe'))
-    # show(get_edit_disc_layout(2))
+    show()
+

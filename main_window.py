@@ -69,15 +69,24 @@ def show():
                 disc = disc_list[row]
                 print(f'DISC DEETS: {disc}')
 
-                mold = disc[2]
+                disc_id = disc[12]
+                dg.make_pickle(disc_id, 'disc_id.pkl')
+
                 ### HERE IS WHERE WE NEED TO WORK:
                 #       make new add_edit form (or two forms like DSW & MCM)
                 #       make it work with mold (or mold.mold) vs. disc_id
                 #       look up info from SQL DB, based on mold.mold & populate form
-                disc_add_edit_window.show(disc_add_edit_window.get_edit_disc_layout(disc_id))
+
+                dgg.run_window('disc_edit_window')
+                # disc_add_edit_window.show(disc_add_edit_window.get_edit_disc_layout(disc_id))
+
                 # refresh table rows after saving disc / closing edit window
-                print(f'DISC LIST: {dg.get_disc_inventory()}')
-                window['-tbl_inv-'].update(values=dg.get_disc_inventory())
+                # print(f'DISC LIST: {dg.get_disc_inventory()}')
+
+                df = dg.eat_pickle('collection.pkl')
+                disc_list = df.values.tolist()
+
+                window['-tbl_inv-'].update(values=disc_list)
 
         elif event == 'ADD DISC':
             dgg.run_window('mold_selection_window')
@@ -88,5 +97,5 @@ def show():
 
 if __name__ == '__main__':
     dg.create_db()
-    disc_list = dg.get_disc_inventory()
+    # disc_list = dg.get_disc_inventory()
     show()

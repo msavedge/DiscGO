@@ -87,7 +87,8 @@ def make_dataframe_pickles():
             weight,
             plastic,
             color,
-            notes
+            notes,
+            id
         FROM
             collection
         JOIN
@@ -209,6 +210,52 @@ def add_disc_to_collection(disc):
         '''
     # print(f'SQL:\n{sql}')
     db_execute(sql)
+    # refresh data used by app
+    make_dataframe_pickles()
+
+
+def update_disc_in_collection(disc):
+    sql = f'''
+        UPDATE
+            collection
+        SET
+            plastic = '{disc['plastic']}',
+            weight = '{disc['weight']}',
+            color = '{disc['color']}',
+            notes = '{disc['notes']}'
+        WHERE
+            id = {disc['id']}
+        '''
+    db_execute(sql)
+    make_dataframe_pickles()
+
+
+def get_disc_from_collection(disc_id):
+    sql = f'''
+        SELECT
+            type,
+            brand,
+            collection.mold,
+            speed,
+            glide,
+            turn,
+            fade,
+            plastic,
+            weight,
+            color,
+            notes
+        FROM
+            collection
+        JOIN
+            mold
+            on
+            mold.mold like collection.mold
+        WHERE
+            id = {disc_id}
+        '''
+    # print(f'SQL:\n{sql}')
+    return db_query_one(sql)
+
 
 def add_disc_to_inventory(disc):
     print(f'adding disc to inventory...')
