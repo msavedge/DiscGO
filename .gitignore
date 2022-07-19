@@ -14,3 +14,5 @@ demo-plot.pdf
 csv_disc_stats.numbers
 
 csv_disc_stats.csv
+
+*.pkl

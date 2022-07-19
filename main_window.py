@@ -2,47 +2,45 @@ import DiscGO as dg
 import PySimpleGUI as sg
 import DiscGOgui as dgg
 
-import disc_add_edit_window
-import mold_selection_window as msw
-
 
 def get_layout(disc_list):
-    _values = disc_list
+    values = disc_list
 
-    _headings = [f'{"TYPE" : ^8}',
-                 f'{"BRAND" : ^15}',
-                 f'{"MOLD" : ^20}',
-                 f'{"SPEED" : ^5}',
-                 f'{"GLIDE" : ^5}',
-                 f'{"TURN" : ^5}',
-                 f'{"FADE" : ^5}',
-                 f'{"STABILITY" : ^4}',
-                 f'{"PLASTIC" : ^6}',
-                 f'{"COLOR" : ^6}',
-                 f'{"WEIGHT" : ^4}',
-                 f'{"NOTES" : ^25}']
+    headings = [f'{"TYPE" : ^8}',
+                f'{"BRAND" : ^15}',
+                f'{"MOLD" : ^20}',
+                f'{"SPEED" : ^5}',
+                f'{"GLIDE" : ^5}',
+                f'{"TURN" : ^5}',
+                f'{"FADE" : ^5}',
+                f'{"STABILITY" : ^4}',
+                f'{"PLASTIC" : ^6}',
+                f'{"COLOR" : ^6}',
+                f'{"WEIGHT" : ^4}',
+                f'{"NOTES" : ^25}']
 
-    _layout = [[sg.Button('DISC COLLECTION DATA'),
-                sg.Button('ADD DISC', pad=((450, 10), (10, 10)))],
-               [sg.Table(headings=_headings,
-                         values=_values,
-                         num_rows=12,
-                         key='-tbl_inv-',
-                         enable_events=True,
-                         enable_click_events=False,
-                         justification='left',
-                         alternating_row_color='#7a7a7a',
-                         row_height=35)],
-               [sg.Button('GO TO BAG',
+    layout = [[sg.Button('DISC COLLECTION DATA'),
+               sg.Button('ADD DISC', pad=((850, 10), (10, 10)))],
+              [sg.Table(headings=headings,
+                        values=values,
+                        num_rows=12,
+                        key='-tbl_inv-',
+                        enable_events=True,
+                        enable_click_events=False,
+                        justification='left',
+                        alternating_row_color='#7a7a7a',
+                        header_text_color='#CC3333',
+                        row_height=35)],
+              [sg.Button('GO TO BAG',
                           key='btn-bag',
                           disabled=True,
                           disabled_button_color=('white', '#64778D')),
-                sg.Button('THROW INFO',
+              sg.Button('THROW INFO',
                           key='btn-throw',
                           disabled=True,
                           disabled_button_color=('white', '#64778D'),
                           pad=((200, 200), (10, 10)))]]
-    return _layout
+    return layout
 
 
 def show():
@@ -83,16 +81,17 @@ def show():
                 # refresh table rows after saving disc / closing edit window
                 # print(f'DISC LIST: {dg.get_disc_inventory()}')
 
-                df = dg.eat_pickle('collection.pkl')
-                disc_list = df.values.tolist()
-
-                window['-tbl_inv-'].update(values=disc_list)
-
         elif event == 'ADD DISC':
             dgg.run_window('mold_selection_window')
 
         elif event == 'DISC COLLECTION DATA':
             dgg.run_window('disc_statistics_window')
+
+        # update window
+        df = dg.eat_pickle('collection.pkl')
+        disc_list = df.values.tolist()
+
+        window['-tbl_inv-'].update(values=disc_list)
 
 
 if __name__ == '__main__':

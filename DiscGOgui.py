@@ -1,8 +1,6 @@
 import PySimpleGUI as sg
 
 # layouts for PySimpleGUI windows
-import inventory_window as iw
-import disc_list_window as dlw
 import disc_statistics_window as dsw
 import main_window as mw
 import mold_selection_window as msw
@@ -29,14 +27,6 @@ def run_window(window):
 
     if window == 'disc_edit_window':
         dew.show()
-
-
-def show_inventory_window():
-    iw.show(iw.get_layout())
-
-
-def show_mold_database():
-    dlw.show()
 
 
 def show_collection_data():

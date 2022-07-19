@@ -100,6 +100,9 @@ def show():
 
             dg.add_disc_to_collection(disc)
 #           # popup confirming successful add
+            window.close()
+            sg.PopupOK('DISC ADDED')
+            break
 
 
 if __name__ == '__main__':
