@@ -1,6 +1,31 @@
 import sqlite3
+
+import pandas as pd
+
 import DiscGOdata as dgd
 import pickle
+
+
+# # add these methods for retrieving data from SQL database:
+# # INITIALIZE:
+#   delete old data frames:
+#       python.os ?
+#   create data frames:  # MOLD_LIST, COLLECTION
+#       pandas read_sql()
+#       dg.make_pickle(df)
+#   load_data_frame(df_name)
+#       dg.eat_pickle()
+#       return df
+# def get_mold_list_df()
+#   pandas read_sql()
+# def get_collection_df()
+#   pandas read_sql()
+# # def get_throw_df()
+# def add_to_collection(mold, options{})
+#   SQL, then reload df
+# def delete_from_collection(disc_id)
+#   SQL, then reload df
+# def pivot_df_on(df, index, values)
 
 
 def db_connect():
@@ -40,6 +65,12 @@ def db_query_all(sql):
     rows = cursor.fetchall()
     conn.close()
     return rows
+
+
+def make_dataframe_pickles():
+    sql = 'SELECT * FROM MOLD'
+    df = pd.read_sql(sql, db_connect())
+    make_pickle(df, 'mold_list.pkl')
 
 
 def make_pickle(obj, file):

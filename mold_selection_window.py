@@ -2,6 +2,7 @@ import DiscGO as dg
 import PySimpleGUI as sg
 import pandas as pd
 import mold_comparison_matrix as mcm
+import DiscGOgui as dgg
 
 
 def get_csv_data_frame():
@@ -112,7 +113,8 @@ def get_layout():
     return layout
 
 
-def show(layout):
+def show():
+    layout = get_layout()
     window = sg.Window('MOLD SELECTION', layout)
     # ------ Event Loop ------
     conditions = {'type': '',
@@ -202,12 +204,25 @@ def show(layout):
                           'speed': '',
                           'stability': ''}
 
-        df = get_csv_data_frame()
+        # # WHY DOESN'T THIS WORK?  <seems like it is - but wait to be sure before deleting this comment>
+        df = dg.eat_pickle('mold_list.pkl')
         fdf = dg.get_filtered_dataframe(df, conditions)
 
         print(f'FILTERED DATA FRAME: {fdf}')
 
         update_tables(fdf, conditions, window)
+
+        if event == 'btn-compare' or event == 'btn-add':
+            # instead of sending df to MCM as variable:
+            # to_pickle() here
+            # read_pickle() from mold comparison matrix
+            fdf.to_pickle('fdf.pkl')
+
+            if event == 'btn-compare':
+                # show mold comparison matrix
+                dgg.run_window('mold_comparison_matrix')
+            elif event == 'btn-add':
+                dgg.run_window('disc_add_window')
 
         # turn buttons on/off as needed
         for k, v in conditions.items():
@@ -227,16 +242,6 @@ def show(layout):
         else:
             window['btn-add'].update(disabled=True)
 
-        if event == 'btn-compare':
-            # instead of sending df to MCM as variable:
-            # to_pickle() here
-            # read_pickle() from mold comparison matrix
-            fdf.to_pickle('fdf.pkl')
-
-            # show mold comparison matrix
-            mcm.show(mcm.get_layout())
-
 
 if __name__ == '__main__':
-    show(get_layout())
-    # get_csv_data_frame()
+    show()

@@ -109,7 +109,8 @@ def lowlight_header(window, hdr):
     window[f'{hdr}-reset'].update(text_color=gray)
 
 
-def show(layout):
+def show():
+    layout = get_layout()
     window = sg.Window("MOLD COMPARISON MATRIX", layout)
 
     conditions = dg.eat_pickle('mcm_cond.pkl')
@@ -242,4 +243,4 @@ if __name__ == '__main__':
     # create pickle called fdf.pkl (filtered data frame)
     df = get_csv_data_frame()
     df.to_pickle('fdf.pkl')
-    show(get_layout())
+    show()

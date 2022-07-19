@@ -140,7 +140,8 @@ def get_layout():
     return layout
 
 
-def show(layout):
+def show():
+    layout = get_layout()
     window = sg.Window('DISC COLLECTION', layout)
     # ------ Event Loop ------
     conditions = {'type': '',
@@ -264,5 +265,5 @@ def show(layout):
 
 
 if __name__ == '__main__':
-    show(get_layout())
+    show()
     # get_csv_data_frame()
