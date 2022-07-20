@@ -2,6 +2,8 @@ import DiscGO as dg
 import PySimpleGUI as sg
 import DiscGOgui as dgg
 
+# sg.theme_previewer()
+sg.theme("Brown Blue")
 
 def get_layout(disc_list):
     values = disc_list
@@ -32,14 +34,12 @@ def get_layout(disc_list):
                         header_text_color='#CC3333',
                         row_height=35)],
               [sg.Button('GO TO BAG',
-                          key='btn-bag',
-                          disabled=True,
-                          disabled_button_color=('white', '#64778D')),
+                         key='btn-bag',
+                         disabled=True),
               sg.Button('THROW INFO',
-                          key='btn-throw',
-                          disabled=True,
-                          disabled_button_color=('white', '#64778D'),
-                          pad=((200, 200), (10, 10)))]]
+                        key='btn-throw',
+                        disabled=True,
+                        pad=((200, 200), (10, 10)))]]
     return layout
 
 

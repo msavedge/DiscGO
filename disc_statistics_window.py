@@ -1,15 +1,8 @@
 import DiscGO as dg
+import DiscGOgui as dgg
 import PySimpleGUI as sg
 import pandas as pd
 import mold_comparison_matrix as mcm
-
-# conditions = {'type': '',
-#               'brand': '',
-#               'mold': '',
-#               'speed': '',
-#               'stability': '',
-#               'plastic': '',
-#               'weight': ''}
 
 
 def get_data_frame():
@@ -101,15 +94,12 @@ def get_col1():
     return sg.Column([get_frame_by_filter('type'),
                       [sg.Button('RESET FILTERS',
                                  key='btn-reset',
-                                 disabled_button_color=('white', '#64778D'),
                                  disabled=True)],
                       [sg.Button('COMPARE DISCS',
                                  key='btn-compare',
-                                 disabled_button_color=('white', '#64778D'),
                                  disabled=True)],
                       [sg.Button('VIEW DISC',
                                  key='btn-add',
-                                 disabled_button_color=('white', '#64778D'),
                                  disabled=True)]
                       ])
 
@@ -260,8 +250,7 @@ def show():
             fdf.to_pickle('fdf.pkl')
 
             # show mold comparison matrix
-            mcm.show()
-
+            dgg.run_window('mold_comparison_matrix')
 
 if __name__ == '__main__':
     show()

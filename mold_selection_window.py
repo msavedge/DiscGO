@@ -1,7 +1,6 @@
 import DiscGO as dg
 import PySimpleGUI as sg
 import pandas as pd
-import mold_comparison_matrix as mcm
 import DiscGOgui as dgg
 
 
@@ -75,15 +74,12 @@ def get_col1():
     return sg.Column([get_frame_by_filter('type'),
                       [sg.Button('RESET FILTERS',
                                  key='btn-reset',
-                                 disabled_button_color=('white', 'gray'),
                                  disabled=True)],
                       [sg.Button('COMPARE MOLDS',
                                  key='btn-compare',
-                                 disabled_button_color=('white', 'gray'),
                                  disabled=True)],
                       [sg.Button('ADD MOLD',
                                  key='btn-add',
-                                 disabled_button_color=('white', 'gray'),
                                  disabled=True)]
                       ])
 
@@ -115,7 +111,7 @@ def get_layout():
 
 def show():
     layout = get_layout()
-    window = sg.Window('MOLD SELECTION', layout)
+    window = sg.Window('MOLD SELECTION', layout, titlebar_text_color='#CC3333')
     # ------ Event Loop ------
     conditions = {'type': '',
                   'brand': '',

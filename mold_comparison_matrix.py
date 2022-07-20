@@ -94,13 +94,11 @@ def get_layout():
                          pad=((20, 10), (10, 10)))],
                [sg.Button('RESET',
                           pad=((20, 450), (5, 10)),
-                          disabled_button_color=('white', 'gray'),
                           disabled=True,
                           key='btn-reset'),
                 sg.Button('DETAILS',
                           pad=(20, 5),
                           disabled=True,
-                          disabled_button_color=('white', 'gray'),
                           key='btn-add')]]
     return _layout
 
