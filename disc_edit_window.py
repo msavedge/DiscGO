@@ -63,7 +63,6 @@ def get_layout(disc_list):
                          size=11,
                          pad=((10, 10), (10, 10)),
                          key='btn-save',
-                         disabled_button_color=('white', '#64778D'),
                          disabled=False)]
               ]
     return layout
@@ -128,7 +127,9 @@ def show():
             dg.update_disc_in_collection(disc)
 #           # popup confirming successful add
             window.close()
+            sg.theme('BrightColors')
             sg.PopupOK('DISC SAVED', background_color='#283B5B')
+            sg.theme('Default')
             break
 
         elif event == 'btn-delete':
@@ -148,7 +149,7 @@ def show():
                 print(f'deleting disc {disc_id}')
                 dg.remove_disc_from_collection(disc_id)
                 window.close()
-                sg.PopupOK('DISC DELETED')
+                sg.PopupOK('DISC DELETED', background_color='#283B5B')
                 break
 
 

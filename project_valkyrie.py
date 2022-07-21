@@ -1,8 +1,6 @@
 # Application controller for Project Valkyrie aka DiscGO (dance, bag, throw, stats, etc.)
 import DiscGO as dg
 import DiscGOgui as dgg
-import pandas as pd
-import PySimpleGUI as sg
 
 # start application:
 #   remove old pickle files (not needed, new onews will overwrite)
