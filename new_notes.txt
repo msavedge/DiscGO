@@ -134,3 +134,27 @@ WHERE
 order by
 	stability desc
 
+SOLID
+    simple
+    open/closed
+    liskov substitution principle
+    interface segregation
+
+
+CLASSES
+    the doers:
+        el_jefe: the big boss
+        db_monkey: SQL database whisperer
+        df_wizard: dataframe dude
+        gui_guy: interface wrangler
+
+    the things
+        database, query
+        dataframe, pivot table
+        filter, condition
+        category
+        mold: mold (abstract)
+        disc: disc (physical)
+        collection: group of discs
+        bag: subset of discs
+        throw: distance & position data for a disc launch

@@ -76,8 +76,8 @@ def show():
     disc_list = [dg.get_disc_from_collection(disc_id)]
 
     layout = get_layout(disc_list)
-
-    window = sg.Window('EDIT DISC', layout, background_color='#7a7a7a')
+    frame = [[sg.Frame('', layout)]]
+    window = sg.Window('EDIT DISC', frame, background_color='#CC3333')
 
     while True:
         event, values = window.read()
@@ -142,7 +142,7 @@ def show():
                                      '',
                                      "THIS OPERATION CANNOT",
                                      "BE UNDONE.",
-                                     "")
+                                     "", background_color='#CC3333')
             if yes_no == 'Yes':
                 disc_id = dg.eat_pickle('disc_id.pkl')
                 print(f'deleting disc {disc_id}')

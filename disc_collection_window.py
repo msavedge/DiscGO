@@ -3,6 +3,7 @@ import PySimpleGUI as sg
 import pandas as pd
 import mold_comparison_matrix as mcm
 
+
 # conditions = {'type': '',
 #               'brand': '',
 #               'mold': '',
@@ -84,8 +85,8 @@ def get_table_by_filter(_filter):  # filter = type, brand, speed, etc.
                       alternating_row_color='#7a7a7a',
                       row_height=25,
                       num_rows=min(13, len(_values)),
-                      enable_click_events=False,
-                      enable_events=True,
+                      enable_click_events=True,
+                      enable_events=False,
                       header_text_color='#CC3333',
                       key=f"-tbl_{_filter.lower()}-",
                       pad=((20, 10), (10, 10)))]
@@ -135,13 +136,16 @@ def get_col6():
 
 
 def get_layout():
-    layout = [sg.vtop([get_col1(), get_col2(), get_col3(), get_col4(), get_col5()])]
+    layout = [[sg.Text('Click on a row to filter molds by that category.', pad=((20, 10), (10, 10))),
+               sg.Text('Click on a white header to remove the filter.')],
+              sg.vtop([get_col1(), get_col2(), get_col3(), get_col4(), get_col5()])]
     return layout
 
 
 def show():
     layout = get_layout()
-    window = sg.Window('DISC COLLECTION', layout)
+    frame = [[sg.Frame('', layout)]]
+    window = sg.Window('DISC COLLECTION', frame, background_color='#283B5B')
     # ------ Event Loop ------
     conditions = {'type': '',
                   'brand': '',
@@ -150,12 +154,6 @@ def show():
                   'stability': ''}
 
     while True:
-        # TYPE = '',
-        # BRAND = '',
-        # MOLD = '',
-        # SPEED = '',
-        # STABILITY = ''
-
         enable_reset_button = False
 
         event, values = window.read()
@@ -172,56 +170,61 @@ def show():
         #   onclick(): 'tighten' dataframe and re-run pivot tables to regenerate data in all other tables
         # if event == clicked on 'TYPE' row 0 (first row in table)
         #   get type of disc to filter on
-        if event == '-tbl_type-':
+        if event[0] == '-tbl_type-':
             print(f'TBL_TYPE EVENT VALUES: {values}')
             # row number stored in values['-tbl-key-'][0]
-            if values['-tbl_type-']:
-                row = values["-tbl_type-"][0]
-
+            row = event[2][0]
+            if row == -1:
+                TYPE = ''
+            else:
                 # print(f'ROW: {row}')
                 table_data = window["-tbl_type-"].get()
                 df = pd.DataFrame(table_data)
                 TYPE = df.iloc[row].tolist()[0]
                 # print(f'TYPE: {TYPE}')
-                conditions.update({'type': TYPE})
+            conditions.update({'type': TYPE})
 
-        elif event == '-tbl_brand-':
-            if values['-tbl_brand-']:
-                row = values["-tbl_brand-"][0]
-                # print(f'ROW: {row}')
+        elif event[0] == '-tbl_brand-':
+            row = event[2][0]
+            if row == -1:
+                BRAND = ''
+            else:
                 table_data = window["-tbl_brand-"].get()
                 df = pd.DataFrame(table_data)
                 BRAND = df.iloc[row].tolist()[0]
                 # print(f'BRAND: {BRAND}')
-                conditions.update({'brand': BRAND})
+            conditions.update({'brand': BRAND})
 
-        elif event == '-tbl_mold-':
-            if values['-tbl_mold-']:
-                row = values["-tbl_mold-"][0]
-                # print(f'ROW: {row}')
+        elif event[0] == '-tbl_mold-':
+            row = event[2][0]
+            if row == -1:
+                MOLD = ''
+            else:
                 table_data = window["-tbl_mold-"].get()
                 df = pd.DataFrame(table_data)
                 MOLD = df.iloc[row].tolist()[0]
                 # print(f'MOLD: {MOLD}')
-                conditions.update({'mold': MOLD})
+            conditions.update({'mold': MOLD})
 
-        elif event == '-tbl_speed-':
-            if values['-tbl_speed-']:
-                row = values["-tbl_speed-"][0]
-                # print(f'ROW: {row}')
+        elif event[0] == '-tbl_speed-':
+            row = event[2][0]
+            if row == -1:
+                SPEED = ''
+            else:
                 table_data = window["-tbl_speed-"].get()
                 df = pd.DataFrame(table_data)
                 SPEED = df.iloc[row].tolist()[0]
-                conditions.update({'speed': SPEED})
+            conditions.update({'speed': SPEED})
 
-        elif event == '-tbl_stability-':
-            if values['-tbl_stability-']:
-                row = values["-tbl_stability-"][0]
-                # print(f'ROW: {row}')
+        elif event[0] == '-tbl_stability-':
+            row = event[2][0]
+            if row == -1:
+                STABILITY = ''
+            else:
                 table_data = window["-tbl_stability-"].get()
                 df = pd.DataFrame(table_data)
                 STABILITY = df.iloc[row].tolist()[0]
-                conditions.update({'stability': STABILITY})
+            conditions.update({'stability': STABILITY})
 
         elif event == 'btn-reset':
             conditions = {'type': '',

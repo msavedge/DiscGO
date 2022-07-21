@@ -67,8 +67,9 @@ def show():
     disc_list = fdf.values.tolist()
 
     layout = get_layout(disc_list)
+    frame = [[sg.Frame('', layout)]]
 
-    window = sg.Window('ADD DISC', layout, background_color='#7a7a7a')
+    window = sg.Window('ADD DISC', frame, background_color='#63926C')
 
     while True:
         event, values = window.read()
@@ -105,7 +106,7 @@ def show():
             dg.add_disc_to_collection(disc)
 #           # popup confirming successful add
             window.close()
-            sg.PopupOK('DISC ADDED', background_color='#283B5B')
+            sg.PopupOK('DISC ADDED', background_color='#63926C')
             break
 
 

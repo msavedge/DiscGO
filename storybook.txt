@@ -1,0 +1,20 @@
+Once upon a time, there was a big boss named el jefe.
+
+El jefe wanted to know all the statistics of his disc collection
+
+He recruited a team of helpers to assist with the project.
+    sql monkey as sm
+    pandas trainer as pt
+    pickle vendor as pv
+    data wizard as dw
+    gui guy as gg
+    el jefe as ej
+
+"How do you know it's a database?"  
+'Easy.  It has a dragon's name.' (Puff, Pip, Drogon)  
+
+The team works with the following objects:
+    mold
+    disc
+    collection
+    bag

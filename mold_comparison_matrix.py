@@ -39,47 +39,8 @@ def get_layout():
     if row_count > 10:
         row_count = 10
 
-    _layout = [[sg.Text('ALL',
-                        text_color=gray,
-                        key='type-reset',
-                        pad=((40, 10), (5, 0)),
-                        background_color='#7a7a7a'),
-                sg.Text('ALL',
-                        text_color=gray,
-                        key='brand-reset',
-                        pad=((65, 10), (5, 0)),
-                        background_color='#7a7a7a'),
-                sg.Text('ALL',
-                        text_color=gray,
-                        key='mold-reset',
-                        pad=((105, 10), (5, 0)),
-                        background_color='#7a7a7a'),
-                sg.Text('ALL',
-                        text_color=gray,
-                        key='speed-reset',
-                        pad=((60, 10), (5, 0)),
-                        background_color='#7a7a7a'),
-                sg.Text('ALL',
-                        text_color=gray,
-                        key='glide-reset',
-                        pad=((10, 10), (5, 0)),
-                        background_color='#7a7a7a'),
-                sg.Text('ALL',
-                        text_color=gray,
-                        key='turn-reset',
-                        pad=((5, 10), (5, 0)),
-                        background_color='#7a7a7a'),
-                sg.Text('ALL',
-                        text_color=gray,
-                        key='fade-reset',
-                        pad=((10, 10), (5, 0)),
-                        background_color='#7a7a7a'),
-                sg.Text('ALL',
-                        text_color=gray,
-                        key='stability-reset',
-                        pad=((20, 10), (5, 0)),
-                        background_color='#7a7a7a'),
-                ],
+    _layout = [[sg.Text('Click on a row to filter molds by that category.', pad=((20, 10), (10, 10))),
+                sg.Text('Click on a white header to remove the filter.')],
                [sg.Table(headings=header_list,
                          values=_data,
                          justification='right',
@@ -105,21 +66,10 @@ def get_layout():
     return _layout
 
 
-def highlight_header(window, hdr):
-    # added condition
-    window[f'{hdr}-reset'].update('      ')
-    window[f'{hdr}-reset'].update(text_color=red)
-
-
-def lowlight_header(window, hdr):
-    # removed condition
-    window[f'{hdr}-reset'].update('ALL')
-    window[f'{hdr}-reset'].update(text_color=gray)
-
-
 def show():
     layout = get_layout()
-    window = sg.Window("MOLD COMPARISON MATRIX", layout, background_color='#7a7a7a')
+    frame = [[sg.Frame('', layout)]]
+    window = sg.Window("MOLD COMPARISON MATRIX", frame, background_color='#283B5B')
 
     conditions = dg.eat_pickle('mcm_cond.pkl')
 
@@ -160,67 +110,67 @@ def show():
                 if row == -1: # header => reset
                     # remove condition
                     conditions.update({'type': ''})
-                    lowlight_header(window, 'type')
+                    # lowlight_header(window, 'type')
                 else:
                     # add condition
                     conditions.update({'type': cell_data})
-                    highlight_header(window, 'type')
+                    # highlight_header(window, 'type')
 
             if col == 1: # brand
                 if row == -1: # reset
                     conditions.update({'brand': ''})
-                    lowlight_header(window, 'brand')
+                    # lowlight_header(window, 'brand')
                 else:
                     conditions.update({'brand': cell_data})
-                    highlight_header(window, 'brand')
+                    # highlight_header(window, 'brand')
 
             if col == 2: # mold
                 if row == -1: # reset
                     conditions.update({'mold': ''})
-                    lowlight_header(window, 'mold')
+                    # lowlight_header(window, 'mold')
                 else:
                     conditions.update({'mold': cell_data})
-                    highlight_header(window, 'mold')
+                    # highlight_header(window, 'mold')
 
             if col == 3: # speed
                 if row == -1: # reset
                     conditions.update({'speed': ''})
-                    lowlight_header(window, 'speed')
+                    # lowlight_header(window, 'speed')
                 else:
                     conditions.update({'speed': cell_data})
-                    highlight_header(window, 'speed')
+                    # highlight_header(window, 'speed')
 
             if col == 4:  # glide
                 if row == -1:  # reset
                     conditions.update({'glide': ''})
-                    lowlight_header(window, 'glide')
+                    # lowlight_header(window, 'glide')
                 else:
                     conditions.update({'glide': cell_data})
-                    highlight_header(window, 'glide')
+                    # highlight_header(window, 'glide')
 
             if col == 5:  # turn
                 if row == -1:  # reset
                     conditions.update({'turn': ''})
-                    lowlight_header(window, 'turn')
+                    # lowlight_header(window, 'turn')
                 else:
                     conditions.update({'turn': cell_data})
-                    highlight_header(window, 'turn')
+                    # highlight_header(window, 'turn')
 
             if col == 6:  # fade
                 if row == -1:  # reset
                     conditions.update({'fade': ''})
-                    lowlight_header(window, 'fade')
+                    # lowlight_header(window, 'fade')
                 else:
                     conditions.update({'fade': cell_data})
-                    highlight_header(window, 'fade')
+                    # highlight_header(window, 'fade')
 
             if col == 7:  # stability
                 if row == -1:  # reset
                     conditions.update({'stability': ''})
-                    lowlight_header(window, 'stability')
+                    # lowlight_header(window, 'stability')
                 else:
                     conditions.update({'stability': cell_data})
-                    highlight_header(window, 'stability')
+                    # highlight_header(window, 'stability')
 
             # save filter conditions:
             dg.make_pickle(conditions, 'mcm_cond.pkl')

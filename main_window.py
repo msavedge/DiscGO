@@ -21,6 +21,7 @@ def get_layout(disc_list):
 
     layout = [[sg.Button('DISC COLLECTION DATA'),
                sg.Button('ADD DISC', pad=((850, 10), (10, 10)))],
+              [sg.Text('Click on a disc to view, edit or delete its details.', pad=((20, 10), (10, 10)))],
               [sg.Table(headings=headings,
                         values=values,
                         num_rows=12,
@@ -40,6 +41,7 @@ def get_layout(disc_list):
                           disabled=True,
                           disabled_button_color=('white', '#64778D'),
                           pad=((200, 200), (10, 10)))]]
+    print(f'PRE LAYOUT: \n{layout}')
     return layout
 
 
@@ -48,7 +50,10 @@ def show():
     disc_list = df.values.tolist()
 
     layout = get_layout(disc_list)
-    window = sg.Window('DiscGO - Disc Golf Data And Number Crunching Experiment', layout)
+    frame = [[sg.Frame('', layout)]]
+    print(f'LAYOUT: \n{frame}')
+
+    window = sg.Window('DiscGO - Disc Golf Data And Number Crunching Experiment', frame, background_color='#283B5B')
 
     while True:
         event, values = window.read()

@@ -1,5 +1,5 @@
 # layouts for PySimpleGUI windows
-import disc_statistics_window as dsw
+import disc_collection_window as dsw
 import main_window as mw
 import mold_selection_window as msw
 import mold_comparison_matrix as mcm
