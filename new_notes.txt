@@ -1,4 +1,16 @@
+original mold list source (? probably) https://www.reddit.com/r/discgolf/comments/ad1jhp/pdga_approved_disc_info/
+
 potential database to scrape: https://discgolfdata.com/pages/yadd.html
+
+next project: scrape the above database --^ to get master list of molds
+#######################################################################
+
+Port application to web
+Make mobile-friendly interface
+Make website with Squarespace, or similar
+Sell/rent usage licenses to users
+Collect, analyze & sell data
+#######################################################################
 
 DB SCHEMA:
 

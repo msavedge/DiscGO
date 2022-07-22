@@ -8,7 +8,7 @@ def get_layout(disc_list):
     values = disc_list
     disc = values[0]
 
-    print(f'GET LAYOUT TABLE VALUES:\n{values}')
+    print(f'GET LAYOUT TABLE VALUES <edit window>:\n{values}')
 
     headings = [f'{"TYPE" : ^8}',
                 f'{"BRAND" : ^15}',
@@ -26,17 +26,13 @@ def get_layout(disc_list):
                         enable_click_events=False,
                         justification='left',
                         hide_vertical_scroll=True,
-                        alternating_row_color='#283B5B',
                         header_text_color='#CC3333',
                         row_height=35)],
               [sg.Text('PLASTIC',
-                       pad=((5, 50), (10, 10)),
-                       background_color='#7a7a7a'),
+                       pad=((5, 50), (10, 10))),
                sg.Text('WEIGHT',
-                       pad=((20, 50), (10, 10)),
-                       background_color='#7a7a7a'),
-               sg.Text('COLOR',
-                       background_color='#7a7a7a')],
+                       pad=((20, 50), (10, 10))),
+               sg.Text('COLOR')],
               [sg.Input(disc[7],
                         size=14,
                         pad=((5, 27), (0, 10)),
@@ -51,7 +47,7 @@ def get_layout(disc_list):
                sg.In(disc[9], size=8, enable_events=True, key='-color-'),
                sg.DummyButton('', size=(15, 1), button_color=(disc[9], disc[9]), disabled=True, key='-swatch-')],
               [sg.In('', visible=False, key='-secret-color-')],
-              [sg.Text('NOTES', background_color='#7a7a7a')],
+              [sg.Text('NOTES')],
               [sg.In(disc[10],
                      size=30,
                      key='-notes-'),
@@ -127,9 +123,9 @@ def show():
             dg.update_disc_in_collection(disc)
 #           # popup confirming successful add
             window.close()
-            sg.theme('BrightColors')
-            sg.PopupOK('DISC SAVED', background_color='#283B5B')
-            sg.theme('Default')
+            # sg.theme('BrightColors')
+            # sg.PopupOK('DISC SAVED', background_color='#283B5B')
+            # sg.theme('Default')
             break
 
         elif event == 'btn-delete':

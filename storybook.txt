@@ -9,6 +9,8 @@ He recruited a team of helpers to assist with the project.
     data wizard as dw
     gui guy as gg
     el jefe as ej
+    disc collector as dc
+    bag man as bm
 
 "How do you know it's a database?"  
 'Easy.  It has a dragon's name.' (Puff, Pip, Drogon)  
@@ -18,3 +20,53 @@ The team works with the following objects:
     disc
     collection
     bag
+
+
+CLASSES:
+    Mold
+        name
+        brand
+        speed
+        glide
+        turn
+        fade
+        
+    Disc extends Mold
+        plastic
+        color
+        weight
+        notes
+
+    Collection
+        Discs[]
+
+    Bag
+        Discs[]
+
+    DataWizard
+        getDataFrame(dataSet)
+        filterDataFrame(df, conditions{})
+        queryDatabase(sql)
+        readPickle(file)
+        savePickle(obj, file)
+        getPivotTable(indexes[], values[], margins=False)
+        addDiscToCollection(mold_name, plastic, color, weight, notes)
+        updateDiscInCollection(disc_id, plastic, color, weight, notes)
+        removeDiscFromCollection(disc_id)
+        addBag(name)
+        renameBag(bag_id, new_name)
+        removeBag(bag_id)
+        addDiscToBag(disc_id, bag_id)
+
+    GUIguy
+        get_layout(data)
+        get_window(layout)
+        get_event()
+        get_values()
+
+    SQLmonkey
+        db_connect()
+        db_execute()
+        db_commit()
+        db_query_one()
+        db_query_many()

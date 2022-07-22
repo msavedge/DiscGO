@@ -54,7 +54,7 @@ def get_table_by_filter(filter):  # filter = type, brand, speed, etc.
     table = [sg.Table(headings=headings,
                       values=values,
                       justification='right',
-                      alternating_row_color='#7a7a7a',
+                      alternating_row_color='#FDFFFC',
                       row_height=25,
                       num_rows=min(13, len(values)),
                       enable_click_events=True,

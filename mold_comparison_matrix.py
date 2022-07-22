@@ -1,6 +1,7 @@
 import sqlite3
 import pandas as pd
 import DiscGO as dg
+import DiscGOgui as dgg
 import PySimpleGUI as sg
 import pickle
 
@@ -23,30 +24,30 @@ def get_csv_data_frame():
     return pd.read_csv('./mold_master_list.csv')
 
 
-def get_fdf():  # filtered data frame - this is the comparison matrix
-    return pd.read_pickle('fdf.pkl')
+# def get_fdf():  # filtered data frame - this is the comparison matrix
+#     return pd.read_pickle('fdf.pkl')
 
 
 def get_layout():
-    _df = get_fdf()
-    _data = _df.values.tolist()
-    print(f'data: {_data}')
+    df = dg.eat_pickle('fdf.pkl')
+    data = df.values.tolist()
+    print(f'data: {data}')
     # pad header text to set min column widths for table - keeps filter flags from shifting as much
     header_list = [' TYPE ', '     BRAND     ', '      MOLD      ', 'SPEED', 'GLIDE', 'TURN', 'FADE', 'STABILITY']
     print(f'header_list: {header_list}')
 
-    row_count = _df.shape[0]
+    row_count = df.shape[0]
     if row_count > 10:
         row_count = 10
 
-    _layout = [[sg.Text('Click on a row to filter molds by that category.', pad=((20, 10), (10, 10))),
-                sg.Text('Click on a white header to remove the filter.')],
-               [sg.Table(headings=header_list,
-                         values=_data,
+    layout = [[sg.Text('Click on a row to filter molds by that category.', pad=((20, 10), (10, 10))),
+               sg.Text('Click on a white header to remove the filter.')],
+              [sg.Table(headings=header_list,
+                         values=data,
                          justification='right',
-                         alternating_row_color='#283B5B',
+                         alternating_row_color='#FDFFFC',
                          row_height=30,
-                         num_rows=min(len(_data), 10),
+                         num_rows=min(len(data), 10),
                          enable_click_events=True,
                          enable_events=False,
                          header_border_width=2,
@@ -57,11 +58,12 @@ def get_layout():
                           pad=((20, 450), (5, 10)),
                           disabled=True,
                           key='btn-reset'),
-                sg.Button('DETAILS',
+                sg.Button('ADD DISC',
                           pad=(20, 5),
                           disabled=True,
+                          visible=False,
                           key='btn-add')]]
-    return _layout
+    return layout
 
 
 def show():
@@ -173,16 +175,25 @@ def show():
             # save filter conditions:
             dg.make_pickle(conditions, 'mcm_cond.pkl')
 
-        df = get_fdf()
+        df = dg.eat_pickle('fdf.pkl')
         fdf = dg.get_filtered_dataframe(df, conditions)
+
+        # save newly filtered data frame
+        dg.make_pickle(fdf, 'fdf.pkl')
+
         # update table with (un)filtered data
         window['-tbl_main-'].update(values=fdf.values.tolist())
 
         # turn buttons on/off as needed:
         if fdf.shape[0] == 1:
-            window['btn-add'].update(disabled=False)
+            print(f'FDF COLUMNS:\n{fdf.columns.tolist()}\n')
+            columns = fdf.columns.tolist()
+            if 'id' not in columns:
+                window['btn-add'].update(disabled=False)
+                window['btn-add'].update(visible=True)
         else:
             window['btn-add'].update(disabled=True)
+            window['btn-add'].update(visible=False)
 
         enable_reset_button = False
         for k, v in conditions.items():
@@ -193,6 +204,9 @@ def show():
             window['btn-reset'].update(disabled=False)
         else:
             window['btn-reset'].update(disabled=True)
+
+        if event == 'btn-add':
+            dgg.run_window('disc_add_window')
 
 
 if __name__ == '__main__':

@@ -1,4 +1,5 @@
 import DiscGO as dg
+import DiscGOgui as dgg
 import PySimpleGUI as sg
 import pandas as pd
 import mold_comparison_matrix as mcm
@@ -82,7 +83,7 @@ def get_table_by_filter(_filter):  # filter = type, brand, speed, etc.
     table = [sg.Table(headings=_headings,
                       values=_values,
                       justification='right',
-                      alternating_row_color='#7a7a7a',
+                      alternating_row_color='#FDFFFC',
                       row_height=25,
                       num_rows=min(13, len(_values)),
                       enable_click_events=True,
@@ -102,17 +103,13 @@ def get_col1():
     return sg.Column([get_frame_by_filter('type'),
                       [sg.Button('RESET FILTERS',
                                  key='btn-reset',
-                                 disabled_button_color=('white', '#64778D'),
                                  disabled=True)],
                       [sg.Button('COMPARE DISCS',
                                  key='btn-compare',
-                                 disabled_button_color=('white', '#64778D'),
                                  disabled=True)],
                       [sg.Button('VIEW DISC',
-                                 key='btn-add',
-                                 disabled_button_color=('white', '#64778D'),
-                                 disabled=True)]
-                      ])
+                                 key='btn-edit',
+                                 disabled=True)]])
 
 
 def get_col2():
@@ -238,6 +235,25 @@ def show():
 
         update_tables(fdf, conditions, window)
 
+        if event == 'btn-compare' or event == 'btn-edit':
+            # instead of sending df to MCM as variable:
+            # to_pickle() here
+            # read_pickle() from mold comparison matrix
+            fdf.to_pickle('fdf.pkl')
+            print(f'DCW: <compare/edit> fdf: \n {fdf}')
+
+
+            # show mold comparison matrix
+            if event == 'btn-compare':
+                dgg.run_window('mold_comparison_matrix')
+
+            # user can view, edit, or delete disc
+            if event == 'btn-edit':
+                print(f'DISC_ID: \n{fdf.id.values[0]}')
+                disc_id = fdf.id.values[0]
+                dg.make_pickle(disc_id, 'disc_id.pkl')
+                dgg.run_window('disc_edit_window')
+
         # turn buttons on/off as needed
         for k, v in conditions.items():
             if v not in ('', 'All'):
@@ -251,19 +267,14 @@ def show():
             window['btn-compare'].update(disabled=True)
         # if only one mold selected, enable add button, disable compare button
         if fdf.shape[0] == 1:
-            window['btn-add'].update(disabled=False)
+            window['btn-edit'].update(disabled=False)
             window['btn-compare'].update(disabled=True)
         else:
-            window['btn-add'].update(disabled=True)
+            window['btn-edit'].update(disabled=True)
 
-        if event == 'btn-compare':
-            # instead of sending df to MCM as variable:
-            # to_pickle() here
-            # read_pickle() from mold comparison matrix
-            fdf.to_pickle('fdf.pkl')
 
-            # show mold comparison matrix
-            mcm.show()
+
+
 
 
 if __name__ == '__main__':
